@@ -1,4 +1,4 @@
-﻿#pragma once
+﻿# pragma once
 # include <Siv3D.hpp>
 
 class PetitGame
@@ -30,16 +30,36 @@ public:
 
 	/// @brief ゲームクリア判定
 	virtual bool isClear() = 0;
+
+	///// @brief ゲームのアセットの読み込み
+	//virtual bool loadAssets() { return true; };
+
+	///// @brief ゲームのアセットの解放
+	//virtual void releaseAssets() {};
 };
 
 class example : public PetitGame
 {
 public:
+	Texture texture;
 	example()
-		:PetitGame{U"てすと"} {}
+		:PetitGame{ U"てすと" },
+		texture{ TextureAsset(U"example_test") }
+	{
+	}
 	void init() override {}
 	void update(double t, double gameSpeed) override { double dt = Scene::DeltaTime() * gameSpeed; }
-	void draw() const override {}
+	void draw() const override { Print << U"hello"; }
 	bool isClear() override { return true; }
+	//bool loadAssets() override {
+	//	if (not TextureAsset::IsRegistered(U"example_test")) {
+	//		TextureAsset::Register(U"example_test", U"example/windmill.png");
+	//	}
+	//	TextureAsset::LoadAsync(U"example_test");
+	//	return TextureAsset::IsReady(U"example_test");
+	//}
+	//void releaseAssets() override {
+	//	TextureAsset::Release(U"example_test");
+	//}
 
 };

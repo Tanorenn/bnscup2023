@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /bnscup2023/App/bnscup2023(debug).exe
 /bnscup2023/App/bnscup2023.exe
+/bnscup2023/App/AS_DEBUG/stats.txt
