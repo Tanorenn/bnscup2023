@@ -1,7 +1,7 @@
 ﻿#pragma once
 # include <Siv3D.hpp>
 
-class PuchiGame
+class PetitGame
 {
 public:
 	/// @brief ゲームのタイトル
@@ -14,7 +14,7 @@ public:
 	const String description = U"ゲームの説明文";
 
 	/// @brief ゲームの初期化
-	PuchiGame(const String& _title, const String& _startCall = U"すくえ！", const String& _description = U"")
+	PetitGame(const String& _title, const String& _startCall = U"すくえ！", const String& _description = U"")
 		:title{ _title }, startCall{ _startCall }, description{ _description } {};
 
 	/// @brief ゲームの初期化
@@ -32,11 +32,11 @@ public:
 	virtual bool isClear() = 0;
 };
 
-class example : public PuchiGame
+class example : public PetitGame
 {
 public:
 	example()
-		:PuchiGame{U"てすと"} {}
+		:PetitGame{U"てすと"} {}
 	void init() override {}
 	void update(double t, double gameSpeed) override { double dt = Scene::DeltaTime() * gameSpeed; }
 	void draw() const override {}

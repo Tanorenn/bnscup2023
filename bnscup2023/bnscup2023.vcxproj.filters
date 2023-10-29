@@ -136,10 +136,10 @@
     <Filter Include="Resource Files\engine\font\min">
       <UniqueIdentifier>{1b103960-f11a-4515-b4f1-f59333ce00d9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\PuchiGames">
+    <Filter Include="Header Files\PetitGames">
       <UniqueIdentifier>{09a95efe-e820-4bcc-b6f6-2d9127cadb9c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\PuchiGames">
+    <Filter Include="Source Files\PetitGames">
       <UniqueIdentifier>{a09b05bb-959c-4cfe-8211-b941d9cecc5b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -782,8 +782,8 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PuchiGame.hpp">
-      <Filter>Header Files\PuchiGames</Filter>
+    <ClInclude Include="PetitGame.hpp">
+      <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
