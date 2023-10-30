@@ -33,7 +33,7 @@ void Title::update()
 		SelectTrianglePoint[0] = SceneCenter.movedBy(-65, 70) + Vec2{0, Periodic::Jump0_1(0.5) * 8};
 		SelectTrianglePoint[2] = SceneCenter.movedBy(-65, 70) - Vec2{0, Periodic::Jump0_1(0.5) * 8};
 		SelectTrianglePoint[1] = SceneCenter.movedBy(-50, 70);
-		SelectTrianglePoint[3] = SceneCenter.movedBy(-65, 70);
+		SelectTrianglePoint[3] = SceneCenter.movedBy(-60, 70);
 
 		if (MouseL.down())
 		{
@@ -45,7 +45,7 @@ void Title::update()
 		SelectTrianglePoint[0] = SceneCenter.movedBy(-65, 105) + Vec2{ 0, Periodic::Jump0_1(0.5) * 8 };
 		SelectTrianglePoint[2] = SceneCenter.movedBy(-65, 105) - Vec2{ 0, Periodic::Jump0_1(0.5) * 8 };
 		SelectTrianglePoint[1] = SceneCenter.movedBy(-50, 105);
-		SelectTrianglePoint[3] = SceneCenter.movedBy(-65, 105);
+		SelectTrianglePoint[3] = SceneCenter.movedBy(-60, 105);
 
 		if (MouseL.down())
 		{
@@ -73,8 +73,7 @@ void Title::draw() const
 
 	if (FontAsset(U"TitleSelectFont")(U"すくう").regionAt(40, SceneCenter.movedBy(0, 60)).mouseOver() or FontAsset(U"TitleSelectFont")(U"おわる").regionAt(40, SceneCenter.movedBy(0, 95)).mouseOver())
 	{
-		Triangle{ SelectTrianglePoint[0], SelectTrianglePoint[1], SelectTrianglePoint[3] }.draw(ColorF(1 - Periodic::Jump0_1(0.5) * 0.25)).drawFrame(0.1, Palette::Black);
-		Triangle{ SelectTrianglePoint[3], SelectTrianglePoint[1], SelectTrianglePoint[2] }.draw(ColorF(0.5 + Periodic::Jump0_1(0.5) * 0.5));
-		Triangle{ SelectTrianglePoint[0], SelectTrianglePoint[1], SelectTrianglePoint[2] }.drawFrame(1.5, Palette::Black);
+		Triangle{ SelectTrianglePoint[0], SelectTrianglePoint[1], SelectTrianglePoint[3] }.draw(ColorF(1 - Periodic::Jump0_1(0.5) * 0.25)).drawFrame(0.7, Palette::Black);
+		Triangle{ SelectTrianglePoint[3], SelectTrianglePoint[1], SelectTrianglePoint[2] }.draw(ColorF(0.5 + Periodic::Jump0_1(0.5) * 0.5)).drawFrame(0.7, Palette::Black);
 	}
 }

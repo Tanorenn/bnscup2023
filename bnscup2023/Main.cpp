@@ -14,14 +14,18 @@ void Main()
 	FontAsset::Register(U"Menu", FontMethod::MSDF, 40, Typeface::Medium);
 	FontAsset::Register(U"Ranking", 40, Typeface::Heavy);
 	FontAsset::Register(U"GameScore", 30, Typeface::Light);
+
 	FontAsset::Register(U"TitleBGFont", FontMethod::Bitmap, 13, Typeface::Bold);
 	FontAsset::Register(U"TitleSelectFont", FontMethod::SDF, 120, U"Font/Buildingsandundertherailwaytracks-Regular.otf", FontStyle::Bitmap);
 	TextureAsset::Register(U"Logo", U"Image/logo.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"Cursor", U"Image/Cursor.png", TextureDesc::Mipped);
+
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
 	App manager;
 	manager.add<Title>(State::Title);
 	manager.add<Game>(State::Game);
+
 
 	// ゲームシーンから開始したい場合はこのコメントを外す
 	//manager.init(State::Game);
@@ -32,8 +36,11 @@ void Main()
 
 	while (System::Update())
 	{
+	
 		ClearPrint();
 		{
+			Cursor::RequestStyle(CursorStyle::Hidden);
+
 			const double scale = (double)Scene::Height() / gameScene.height();
 			const Vec2 pos{ Scene::CenterF() - gameScene.size() * scale / 2 };
 			const Transformer2D transformer{ Mat3x2::Identity(), Mat3x2::Scale(scale).translated(pos) };
@@ -43,6 +50,7 @@ void Main()
 			{
 				break;
 			}
+			TextureAsset(U"Cursor").scaled(0.025).draw(Cursor::PosF().movedBy(-15, -3));
 		}
 
 		gameScene.resized(Scene::Width()).drawAt(Scene::Center(), ColorF{ 0.5 });
