@@ -19,7 +19,7 @@ void Game::update()
 {
 	gameTime += gameSpeed * Scene::DeltaTime();
 	auto& game = m_games[m_gameIndex[m_gameCount]];
-	game->update(0, 0);
+	game->update(gameTime, gameSpeed);
 	if (KeyEnter.down()) {
 		if(m_gameCount < Min(playGames,(int32)m_gameIndex.size()) - 1)m_gameCount++;
 		else changeScene(State::Title);
