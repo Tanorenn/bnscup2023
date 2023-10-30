@@ -48,8 +48,14 @@ public:
 	{
 	}
 	void init() override {}
-	void update(double t, double gameSpeed) override { double dt = Scene::DeltaTime() * gameSpeed; }
-	void draw() const override { Print << U"hello"; }
+	void update(double t, double gameSpeed) override {
+		double dt = Scene::DeltaTime() * gameSpeed;
+		Print << Cursor::Pos();
+	}
+	void draw() const override {
+		Print << U"hello";
+		Circle{ Cursor::Pos(),50 }.draw(Palette::Red);
+	}
 	bool isClear() override { return true; }
 	//bool loadAssets() override {
 	//	if (not TextureAsset::IsRegistered(U"example_test")) {

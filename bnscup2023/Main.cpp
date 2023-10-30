@@ -17,14 +17,24 @@ void Main()
 	manager.add<Game>(State::Game);
 
 	// ゲームシーンから開始したい場合はこのコメントを外す
-	manager.init(State::Game);
+	//manager.init(State::Game);
+	RenderTexture gameScene{ 256,256 };
 
 	while (System::Update())
 	{
 		ClearPrint();
-		if (not manager.update())
 		{
-			break;
+			const double scale = (double)Scene::Height() / gameScene.height();
+			const Vec2 pos{ Scene::CenterF() - gameScene.size() * scale / 2 };
+			const Transformer2D transformer{ Mat3x2::Identity(), Mat3x2::Scale(scale).translated(pos) };
+			const ScopedRenderTarget2D target{ gameScene.clear(Palette::White) };
+			if (not manager.update())
+			{
+				break;
+			}
 		}
+		gameScene.resized(Scene::Width()).drawAt(Scene::Center(), ColorF{ 0.5 });
+		gameScene.resized(Scene::Height()).drawAt(Scene::Center());
+
 	}
 }

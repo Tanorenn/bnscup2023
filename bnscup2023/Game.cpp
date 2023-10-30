@@ -2,32 +2,33 @@
 
 Game::Game(const InitData& init)
 	: IScene{ init },
-	m_petitGame{ getData().petitGames.choice() }
+	m_games{ getData().petitGames },
+	m_gameIndex{m_games.size()},
+	gameScene{ 256,256, Palette::White }
 {
-	m_petitGame->init();
+	for (int i = 0; i < m_gameIndex.size(); i++)m_gameIndex[i] = i;
+	m_gameIndex.shuffle();
+	for (int i = 0; i < Min(5, (int32)getData().petitGames.size()); i++) {
+		m_games[m_gameIndex[i]]->init();
+	}
 	m_isLoaded = true;
 	//m_petitGame->loadAssets();
 }
 
 void Game::update()
 {
-	//if (m_petitGame->loadAssets())
-	//{
-	//	m_isLoaded = true;
-	//}
-	if (m_isLoaded)
-		m_petitGame->update(0, 0);
+	gameTime += gameSpeed * Scene::DeltaTime();
+	auto& game = m_games[m_gameIndex[m_gameCount]];
+	game->update(0, 0);
 	if (KeyEnter.down()) {
-		//m_petitGame->releaseAssets();
-		changeScene(State::Title);
+		if(m_gameCount < Min(playGames,(int32)m_gameIndex.size()) - 1)m_gameCount++;
+		else changeScene(State::Title);
 	}
 }
 
 void Game::draw() const
 {
-	Print << m_petitGame->title;
-	if (m_isLoaded)
-	{
-		m_petitGame->draw();
-	}
+	const auto& game = getData().petitGames[m_gameIndex[m_gameCount]];
+	Print << game->title;
+	game->draw();
 }
