@@ -322,6 +322,7 @@
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="PetitGame.hpp" />
     <ClInclude Include="PetitGames.hpp" />
+    <ClInclude Include="SaveEarth.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Sukuea.hpp" />
     <ClInclude Include="Title.hpp" />

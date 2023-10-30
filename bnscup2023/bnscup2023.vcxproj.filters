@@ -809,5 +809,8 @@
     <ClInclude Include="Sukuea.hpp">
       <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
+    <ClInclude Include="SaveEarth.hpp">
+      <Filter>Header Files\PetitGames</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
