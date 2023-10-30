@@ -159,6 +159,9 @@
     <ClCompile Include="Sukuea.cpp">
       <Filter>Source Files\PetitGames</Filter>
     </ClCompile>
+    <ClCompile Include="SaveEarth.cpp">
+      <Filter>Source Files\PetitGames</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
