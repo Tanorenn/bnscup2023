@@ -52,8 +52,10 @@ void Main()
 			}
 			TextureAsset(U"Cursor").scaled(0.025).draw(Cursor::PosF().movedBy(-15, -3));
 		}
-
-		gameScene.resized(Scene::Width()).drawAt(Scene::Center(), ColorF{ 0.5 });
-		gameScene.resized(Scene::Height()).drawAt(Scene::Center());
+		{
+			//const ScopedRenderStates2D sampler{ SamplerState::ClampNearest };
+			gameScene.resized(Scene::Width()).drawAt(Scene::Center(), ColorF{ 0.5 });
+			gameScene.resized(Scene::Height()).drawAt(Scene::Center());
+		}
 	}
 }
