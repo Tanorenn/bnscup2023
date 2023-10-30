@@ -1,5 +1,4 @@
 ﻿# include "PetitGame.hpp"
-# include "Common.hpp"
 
 class SaveTheEarth : public PetitGame
 {
