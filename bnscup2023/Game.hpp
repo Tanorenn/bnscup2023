@@ -11,6 +11,11 @@ public:
 
 	void draw() const override;
 
+	void updateGame();
+	void drawGame() const;
+	void updateIntermission();
+	void drawIntermission(double fade) const;
+
 private:
 	const int32 playGames = 5;
 	int32 gameCount = 0;
