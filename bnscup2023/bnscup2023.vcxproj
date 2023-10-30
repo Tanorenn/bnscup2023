@@ -320,6 +320,7 @@
   <ItemGroup>
     <ClInclude Include="Common.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="intermission.hpp" />
     <ClInclude Include="PetitGame.hpp" />
     <ClInclude Include="PetitGames.hpp" />
     <ClInclude Include="SaveEarth.hpp" />
