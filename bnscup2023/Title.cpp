@@ -13,6 +13,8 @@ Title::Title(const InitData& init)
 		}
 	}
 
+	SelectTrianglePoint.clear();
+
 	for (auto i : step(4))
 	{
 		SelectTrianglePoint << Vec2{ 0, 0 };
