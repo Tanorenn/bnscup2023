@@ -73,4 +73,10 @@ public:
 
 private:
 	Array<TitleBGText> bgtexts;
+	Array<Vec2> SelectTrianglePoint;
+
+
+	Vec2 SukuuLeftTopTrianglePoint = SceneCenter.movedBy(-65, 70);
+	Vec2 SukuuLeftBottomTrianglePoint = SceneCenter.movedBy(-65, 70);
+	Vec2 SukuuLeftCenterTrianglePoint = SceneCenter.movedBy(-50, 70);
 };
