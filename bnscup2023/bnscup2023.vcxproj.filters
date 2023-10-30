@@ -156,6 +156,8 @@
     <ClCompile Include="Title.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SaveEarth.hpp">
+      <Filter>Header Files\PetitGames</Filter>
     <ClCompile Include="Sukuea.cpp">
       <Filter>Source Files\PetitGames</Filter>
     </ClCompile>
