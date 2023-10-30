@@ -156,6 +156,9 @@
     <ClCompile Include="Title.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SaveEarth.hpp">
+      <Filter>Header Files\PetitGames</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
