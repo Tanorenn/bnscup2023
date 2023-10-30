@@ -14,6 +14,9 @@ void Main()
 	FontAsset::Register(U"Menu", FontMethod::MSDF, 40, Typeface::Medium);
 	FontAsset::Register(U"Ranking", 40, Typeface::Heavy);
 	FontAsset::Register(U"GameScore", 30, Typeface::Light);
+	FontAsset::Register(U"TitleBGFont", FontMethod::Bitmap, 13, Typeface::Bold);
+	FontAsset::Register(U"TitleSelectFont", FontMethod::SDF, 120, U"Font/Buildingsandundertherailwaytracks-Regular.otf", FontStyle::Bitmap);
+	TextureAsset::Register(U"Logo", U"Image/logo.png", TextureDesc::Mipped);
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
 	App manager;
