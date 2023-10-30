@@ -13,5 +13,5 @@ void Title::update()
 
 void Title::draw() const
 {
-	FontAsset(U"TitleFont")(U"Title").drawAt(Scene::Center(), Palette::White);
+	FontAsset(U"TitleFont")(U"Title").drawAt(SceneCenter, Palette::Black);
 }
