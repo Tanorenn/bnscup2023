@@ -156,6 +156,9 @@
     <ClCompile Include="Title.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sukuea.cpp">
+      <Filter>Source Files\PetitGames</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -801,6 +804,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PetitGames.hpp">
+      <Filter>Header Files\PetitGames</Filter>
+    </ClInclude>
+    <ClInclude Include="Sukuea.hpp">
       <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
   </ItemGroup>
