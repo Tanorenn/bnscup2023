@@ -7,13 +7,13 @@ SaveTheEarth::SaveTheEarth()
 void SaveTheEarth::init() {
 	ballRad = Random(0, 360) * 1_deg;
 	ballDist = 200;
-	double time = 0;
+	time = 0;
 	// ボールの角度
-	double ballRad = 0;
+	ballRad = 0;
 	// ボールの中心からの距離
-	double ballDist = 0;
-	bool isSaved = false;
-	bool isBurn = false;
+	ballDist = 0;
+	isSaved = false;
+	isBurn = false;
 }
 
 void SaveTheEarth::update(double t, double gameSpeed) {

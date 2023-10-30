@@ -9,9 +9,7 @@ Game::Game(const InitData& init)
 	gameIndex = Array<size_t>(getData().petitGames.size(), 0);
 	for (int i = 0; i < gameIndex.size(); i++)gameIndex[i] = i;
 	gameIndex.shuffle();
-	for (int i = 0; i < Min(5, (int32)getData().petitGames.size()); i++) {
-		games[gameIndex[i]]->init();
-	}
+	games[gameIndex[0]]->init();
 	finishTime = 60.0 * 8 / tempo;
 	gameSpeed = 1.0 / finishTime;
 	gameTime = -0.5;
@@ -26,6 +24,7 @@ void Game::update()
 	if (KeyEnter.down() or gameTime>=2.5) {
 		if (gameCount < Min(playGames, (int32)gameIndex.size()) - 1) {
 			gameCount++;
+			games[gameIndex[gameCount]]->init();
 			if (gameCount % 5)tempo += 10.0;
 			finishTime = 60.0 * 8 / tempo;
 			gameSpeed = 1.0 / finishTime;
