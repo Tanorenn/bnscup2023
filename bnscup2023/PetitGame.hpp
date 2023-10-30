@@ -36,7 +36,7 @@ public:
 	virtual void update(double t,double gameSpeed) = 0;
 
 	/// @brief ゲームの描画
-	virtual void draw() const = 0;
+	virtual void draw(double t, double gameSpeed) const = 0;
 
 	/// @brief ゲームクリア判定
 	virtual bool isClear() = 0;
@@ -62,7 +62,7 @@ public:
 		double dt = Scene::DeltaTime() * gameSpeed;
 		Print << Cursor::Pos();
 	}
-	void draw() const override {
+	void draw(double t, double gameSpeed) const override {
 		Print << U"hello";
 		Circle{ Cursor::Pos(),50 }.draw(Palette::Red);
 	}

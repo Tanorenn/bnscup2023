@@ -18,7 +18,7 @@ public:
 		double dt = Scene::DeltaTime() * gameSpeed;
 		time = t;
 	}
-	void draw() const override {
+	void draw(double t, double gameSpeed) const override {
 		Rect(0, 0, 256, 256).draw(Palette::Black);
 		Print << time;
 		earth.scaled(0.4).rotated(360_deg * time).drawAt(128, 128);
