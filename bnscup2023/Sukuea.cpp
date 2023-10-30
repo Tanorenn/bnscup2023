@@ -12,7 +12,7 @@ void Sukuea::update(double t, double gameSpeed) {
 
 }
 
-void Sukuea::draw() const {
+void Sukuea::draw(double t, double gameSpeed) const {
 
 }
 

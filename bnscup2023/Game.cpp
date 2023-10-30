@@ -39,7 +39,7 @@ void Game::draw() const
 {
 	const auto& game = getData().petitGames[gameIndex[gameCount]];
 	Print << game->title;
-	game->draw();
+	game->draw(Clamp(gameTime, 0.0, 1.0), gameSpeed);
 	if (gameTime < 0) {
 		FontAsset(U"TitleSelectFont")(game->startCall).drawAt(60,SceneCenter.movedBy(2, 2), ColorF{ 0.0,0.4 });
 		FontAsset(U"TitleSelectFont")(game->startCall).drawAt(60,SceneCenter);

@@ -8,12 +8,12 @@ public:
 	const Texture moon{ U"🌝"_emoji };
 	const Texture comet{ U"☄️_emoji" };
 	double time = 0;
-
-	SaveTheEarth():PetitGame{ U"地球救済" } {}
+	SaveTheEarth() :PetitGame{ U"地球救済" } {}
 	void init() override;
 	void update(double t, double gameSpeed) override;
 	void draw() const override;
 	bool isClear() override { return true; }
+	
 };
 
 
