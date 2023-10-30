@@ -5,7 +5,7 @@ Sukuea::Sukuea()
 {}
 
 void Sukuea::init(){
-
+	//rect = Rect{}
 }
 
 void Sukuea::update(double t, double gameSpeed) {
