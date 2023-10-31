@@ -16,7 +16,7 @@ void Main()
 	FontAsset::Register(U"GameScore", 30, Typeface::Light);
 
 	FontAsset::Register(U"TitleBGFont", FontMethod::Bitmap, 13, Typeface::Bold);
-	FontAsset::Register(U"TitleSelectFont", FontMethod::SDF, 120, U"Font/Buildingsandundertherailwaytracks-Regular.otf", FontStyle::Bitmap);
+	FontAsset::Register(U"TitleSelectFont", FontMethod::MSDF, 120, U"Font/Buildingsandundertherailwaytracks-Regular.otf", FontStyle::Bitmap);
 	TextureAsset::Register(U"Logo", U"Image/logo.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"Cursor_Point", U"Image/Cursor_Point.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"Cursor_Grab", U"Image/Cursor_Grab.png", TextureDesc::Mipped);
