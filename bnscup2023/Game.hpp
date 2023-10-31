@@ -15,7 +15,7 @@ public:
 	void drawGame() const;
 	void updateIntermission();
 	void drawIntermission(double fade) const;
-
+	void drawTime() const;
 private:
 	const int32 playGames = 5;
 	int32 gameCount = 0;
@@ -24,6 +24,6 @@ private:
 	RenderTexture gameScene;
 	double gameTime=0;
 	double gameSpeed = 1.0;
-	double tempo = 300.0;
+	double tempo = 120.0;
 	double finishTime = 0;
 };

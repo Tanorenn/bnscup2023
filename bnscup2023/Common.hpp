@@ -22,7 +22,12 @@ struct GameData
 	Array<PetitGame*> petitGames
 	{
 		// new example(),
-		new SaveTheEarth()
+		new SaveTheEarth(),
+		new SaveTheEarth(),
+		new SaveTheEarth(),
+		new SaveTheEarth(),
+		new SaveTheEarth(),
+		new SaveTheEarth(),
 	};
 };
 
