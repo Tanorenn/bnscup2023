@@ -50,6 +50,7 @@ void Main()
 	{
 		ClearPrint();
 
+		//RenderTextureに書き込む
 		{
 			Cursor::RequestStyle(CursorStyle::Hidden);
 
@@ -63,7 +64,7 @@ void Main()
 				break;
 			}
 		}
-
+		//RenderTexture描画
 		{
 			//const ScopedRenderStates2D sampler{ SamplerState::ClampNearest };
 			gameScene.resized(Scene::Width()).drawAt(Scene::Center(), ColorF{ 0.5 });
