@@ -32,9 +32,9 @@ void Main()
 	manager.add<Game>(State::Game);
 
 	//ゲーム内で使うマウスカーソルの登録
-	manager.get().get()->myCursor.Register(U"Point", CursorInfo{ U"Cursor_Point", Vec2{ 0, 0 }, 0.025 });
-	manager.get().get()->myCursor.Register(U"Grab", CursorInfo{ U"Cursor_Grab", Vec2{ 0, 0 }, 0.025 });
-	manager.get().get()->myCursor.Register(U"Release", CursorInfo{ U"Cursor_Release", Vec2{ 0, 0 }, 0.025 });
+	manager.get().get()->myCursor.Register(U"Point", CursorInfo{ U"Cursor_Point", Vec2{ 3, 15 }, 0.025 });
+	manager.get().get()->myCursor.Register(U"Grab", CursorInfo{ U"Cursor_Grab", Vec2{ 3, 15 }, 0.025 });
+	manager.get().get()->myCursor.Register(U"Release", CursorInfo{ U"Cursor_Release", Vec2{ 3, 15 }, 0.025 });
 	manager.get().get()->myCursor.RequestStyle(U"Release");
 	manager.get().get()->myCursor.update();
 
