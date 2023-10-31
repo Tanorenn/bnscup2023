@@ -8,10 +8,6 @@ void SaveTheEarth::init() {
 	ballRad = Random(0, 360) * 1_deg;
 	ballDist = 200;
 	time = 0;
-	// ボールの角度
-	ballRad = 0;
-	// ボールの中心からの距離
-	ballDist = 0;
 	isSaved = false;
 	isBurn = false;
 }
