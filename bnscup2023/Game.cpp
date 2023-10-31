@@ -21,6 +21,9 @@ void Game::update()
 	gameTime += gameSpeed * Scene::DeltaTime();
 	auto& game = games[gameIndex[gameCount]];
 	game->update(Clamp(gameTime,0.0,1.0), gameSpeed);
+	getData().myCursor.RequestStyle(game->CursorStyle);
+	getData().myCursor.update();
+
 	if (KeyEnter.down() or gameTime>=2.0) {
 		if (gameCount < Min(playGames, (int32)gameIndex.size()) - 1) {
 			gameCount++;
@@ -54,6 +57,7 @@ void Game::draw() const
 		FontAsset(U"TitleSelectFont")(game->startCall).drawAt(60,SceneCenter);
 	}
 
+	getData().myCursor.draw();
 }
 
 void Game::drawIntermission(double fade) const
