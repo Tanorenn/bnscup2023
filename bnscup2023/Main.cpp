@@ -18,13 +18,25 @@ void Main()
 	FontAsset::Register(U"TitleBGFont", FontMethod::Bitmap, 13, Typeface::Bold);
 	FontAsset::Register(U"TitleSelectFont", FontMethod::SDF, 120, U"Font/Buildingsandundertherailwaytracks-Regular.otf", FontStyle::Bitmap);
 	TextureAsset::Register(U"Logo", U"Image/logo.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"Cursor", U"Image/Cursor.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"Cursor_Point", U"Image/Cursor_Point.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"Cursor_Grab", U"Image/Cursor_Grab.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"Cursor_Release", U"Image/Cursor_Release.png", TextureDesc::Mipped);
+	TextureAsset::Load(U"Cursor_Point");
+	TextureAsset::Load(U"Cursor_Grab");
+	TextureAsset::Load(U"Cursor_Release");
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
 	App manager;
 	manager.add<Title>(State::Title);
 	manager.add<Game>(State::Game);
+
+	//ゲーム内で使うマウスカーソルの登録
+	manager.get().get()->myCursor.Register(U"Point", CursorInfo{ U"Cursor_Point", Vec2{ 0, 0 }, 0.025 });
+	manager.get().get()->myCursor.Register(U"Grab", CursorInfo{ U"Cursor_Grab", Vec2{ 0, 0 }, 0.025 });
+	manager.get().get()->myCursor.Register(U"Release", CursorInfo{ U"Cursor_Release", Vec2{ 0, 0 }, 0.025 });
+	manager.get().get()->myCursor.RequestStyle(U"Release");
+	manager.get().get()->myCursor.update();
 
 
 	// ゲームシーンから開始したい場合はこのコメントを外す
@@ -36,8 +48,8 @@ void Main()
 
 	while (System::Update())
 	{
-	
 		ClearPrint();
+
 		{
 			Cursor::RequestStyle(CursorStyle::Hidden);
 
@@ -50,8 +62,8 @@ void Main()
 			{
 				break;
 			}
-			TextureAsset(U"Cursor").scaled(0.025).draw(Cursor::PosF().movedBy(-15, -3));
 		}
+
 		{
 			//const ScopedRenderStates2D sampler{ SamplerState::ClampNearest };
 			gameScene.resized(Scene::Width()).drawAt(Scene::Center(), ColorF{ 0.5 });
