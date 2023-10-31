@@ -14,4 +14,5 @@ private:
 	Array<Polygon> polygons;
 	Array<HSV> colors;
 	double dig;
+	int32 select = -1;
 };

@@ -23,11 +23,7 @@ struct GameData
 	{
 		// new example(),
 		new SaveTheEarth(),
-		new SaveTheEarth(),
-		new SaveTheEarth(),
-		new SaveTheEarth(),
-		new SaveTheEarth(),
-		new SaveTheEarth(),
+		new Sukuea(),
 	};
 };
 

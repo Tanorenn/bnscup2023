@@ -21,6 +21,6 @@ private:
 	RenderTexture gameScene;
 	double gameTime=0;
 	double gameSpeed = 1.0;
-	double tempo = 500.0;
+	double tempo = 120.0;
 	double finishTime = 0;
 };
