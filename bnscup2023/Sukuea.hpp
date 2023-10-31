@@ -11,8 +11,7 @@ public:
 	bool isClear() override;
 
 private:
-	Rect rect;
-	Circle cir;
-	Triangle tr;
-	Polygon pent, hex;
+	Array<Polygon> polygons;
+	Array<HSV> colors;
+	double dig;
 };
