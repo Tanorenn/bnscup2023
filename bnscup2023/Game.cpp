@@ -25,7 +25,7 @@ void Game::update()
 		if (gameCount < Min(playGames, (int32)gameIndex.size()) - 1) {
 			gameCount++;
 			games[gameIndex[gameCount]]->init();
-			if (gameCount % 5)tempo += 10.0;
+			if (gameCount % 3)tempo += 10.0;
 			finishTime = 60.0 * 8 / tempo;
 			gameSpeed = 1.0 / finishTime;
 			gameTime = -1.0;
@@ -56,18 +56,6 @@ void Game::draw() const
 
 }
 
-void Game::updateGame()
-{
-
-}
-void Game::drawGame() const
-{
-
-}
-void Game::updateIntermission()
-{
-
-}
 void Game::drawIntermission(double fade) const
 {
 	const auto& game = getData().petitGames[gameIndex[gameCount]];
