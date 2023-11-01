@@ -321,6 +321,7 @@
   <ItemGroup>
     <ClInclude Include="100Yen.hpp" />
     <ClInclude Include="Common.hpp" />
+    <ClInclude Include="Effect.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="intermission.hpp" />
     <ClInclude Include="MyCursor.hpp" />

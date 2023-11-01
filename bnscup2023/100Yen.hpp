@@ -13,16 +13,27 @@ private:
 		CLEAR
 	};
 
-	const Texture Hand{ U"🤚"_emoji };
-	const Texture Coin{ U"🪙"_emoji };	//見えてないけどコイン
+	const Texture Hand{ U"🤚"_emoji };	//手
+	const Texture Coin{ U"🪙"_emoji };	//コイン
+	const Texture Leaf{ U"🍂"_emoji };	//葉っぱ
+	const Texture Rock{ U"🪨"_emoji };	//石ころ
 	Vec2 handPos{ 0, 0 };				//手の座標
 	Vec2 coinPos{ 0, 0 };				//コインの座標
+	Array<Vec2> leafPos;				//葉っぱの座標
+	Array<Vec2> rockPos;				//石ころの座標
+	Array<double> leafScale;			//葉っぱの大きさ
+	Array<double> rockScale;			//石ころの大きさ
 	double GoX = 0;						//手を伸ばしたときのx座標
 	double handVelocity = 100.0 * 4;	//手の速度
 	bool isCleared = false;				//クリアしたかどうか
 	State state = MOVE;					//ゲームの進行状況
 	RenderTexture Clear{ SceneSize, Palette::White };				//クリアした時に現れる演出
 	double clearT = 0;					//クリアした時に現れる演出用の時間
+	uint8 drinkTop = 0;					//クリアした後のドリンクの上半分
+	uint8 drinkBottom = 0;				//クリアした後のドリンクの下半分
+	Effect effect;						//エフェクト
+	Stopwatch effectTimer;				//エフェクト発生タイマー
+
 	//クリアした後に現れる飲み物一覧
 	const Array<String> drinks
 	{
@@ -30,9 +41,6 @@ private:
 		U"コーヒー",
 		U"エナジー"
 	};
-
-	uint8 drinkTop = 0;					//クリアした後のドリンクの上半分
-	uint8 drinkBottom = 0;				//クリアした後のドリンクの下半分
 
 public:
 	HundredYen()
@@ -43,6 +51,17 @@ public:
 
 	void init() override
 	{
+		leafPos.clear();
+		rockPos.clear();
+		leafScale.clear();
+		rockScale.clear();
+		for (auto i : step(6))
+		{
+			leafPos << Vec2{ Random(0, 250), Random(0, 250) };
+			rockPos << Vec2{ Random(0, 250), Random(0, 250) };
+			leafScale << Random(0.1, 0.2);
+			rockScale << Random(0.1, 0.2);
+		}
 		coinPos = Vec2{ Random(50, 200), Random(50, 150) };
 		handPos = Vec2{ 50, 200 };
 		handVelocity = 100.0 * 4;
@@ -53,6 +72,7 @@ public:
 		Clear = RenderTexture{ SceneSize, Palette::White };
 		drinkTop = Random(drinks.size() - 1);
 		drinkBottom = Random(drinks.size() - 1);
+		effectTimer.reset();
 		CursorStyle = U"Point";
 	}
 
@@ -83,7 +103,7 @@ public:
 		}
 		else if (state == GO)
 		{
-			handPos.y -= Abs(handVelocity) * gameSpeed * Scene::DeltaTime() * 2;
+			handPos.y -= Abs(handVelocity) * gameSpeed * Scene::DeltaTime() * 3;
 			if (Hand.scaled(0.5).regionAt(handPos).intersects(Coin.scaled(0.2).regionAt(coinPos)))
 			{
 				isCleared = true;
@@ -96,10 +116,17 @@ public:
 		}
 		else if (state == BACK)
 		{
-			handPos.x = GoX + Periodic::Triangle1_1(0.01 / gameSpeed) * 3;
-			handPos.y += Abs(handVelocity) * gameSpeed * Scene::DeltaTime() * 2;
+			effectTimer.start();
+			if (effectTimer.sF() > 0.005 / gameSpeed)
+			{
+				effect.add<SmokeEffect>(handPos, gameSpeed);
+				effectTimer.restart();
+			}
+			handPos.x = GoX + Periodic::Triangle1_1(0.01 / gameSpeed) * 2;
+			handPos.y += Abs(handVelocity) * gameSpeed * Scene::DeltaTime() * 3;
 			if (handPos.y > 200)
 			{
+				effectTimer.reset();
 				handPos.y = 200;
 				state = MOVE;
 			}
@@ -113,10 +140,17 @@ public:
 	void draw(double t, double gameSpeed) const override
 	{
 		Rect{ 0, 0, SceneSize }.draw(Palette::Gray);
-		if (not isCleared)Coin.scaled(0.2).drawAt(coinPos);
+		for (auto i : step(leafPos.size()))
+		{
+			Leaf.scaled(leafScale[i]).drawAt(leafPos[i], ColorF(1, 0.75));
+			Rock.scaled(rockScale[i]).drawAt(rockPos[i], ColorF(1, 0.75));
+		}
+		if (not isCleared)Coin.scaled(0.25).drawAt(coinPos);
 		Hand.scaled(0.5).drawAt(handPos);
-
+		Ellipse{ 0, 0, 75, 50 }.draw(Palette::White).drawFrame(2, Palette::Black);
 		TextureAsset(U"自動販売機").resized(50, 40).drawAt(25 + Periodic::Triangle1_1(0.015 / gameSpeed) * 2, 20);
+		effect.update();
+
 
 		{
 			const ScopedRenderTarget2D target{ Clear };

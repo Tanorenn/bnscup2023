@@ -21,7 +21,6 @@ struct GameData
 	//ゲーム一覧
 	Array<PetitGame*> petitGames
 	{
-		new example(),
 		new SaveTheEarth(),
 		new HundredYen()
 	};
