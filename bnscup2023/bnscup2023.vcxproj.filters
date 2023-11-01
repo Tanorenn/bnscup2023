@@ -827,5 +827,8 @@
     <ClInclude Include="Effect.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Mountain.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

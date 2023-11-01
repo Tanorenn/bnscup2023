@@ -14,6 +14,17 @@ Game::Game(const InitData& init)
 	gameSpeed = 1.0 / finishTime;
 	gameTime = -0.5;
 
+	mountain = Mountain{ 20, 20 }
+		._setYStart(SceneHeight + 50)
+		._setYEnd(SceneCenter.y + 70)
+		._setXStart(SceneWidth * 3)
+		._setXEnd(SceneWidth)
+		._setOctave(2)
+		._setScale(20.0)
+		._setVariation(40.0)
+		._setEasingFunc(EaseOutSine);
+
+	mountain.update();
 }
 
 void Game::update()
@@ -54,6 +65,9 @@ void Game::update()
 
 void Game::draw() const
 {
+	Rect{ 0, 0, SceneSize }.draw(ColorF(0.1, 0.1, 0.2));
+	mountain.drawLine(1, Palette::Azure.withAlpha(100));
+
 	if (gameOver) {
 		drawGameOver();
 		return;
