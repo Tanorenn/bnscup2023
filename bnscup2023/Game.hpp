@@ -12,7 +12,12 @@ public:
 	void draw() const override;
 
 	void drawIntermission(double fade) const;
+	void drawShutter(double fade) const;
 	void drawTime() const;
+
+	void updateGameOver();
+	void drawGameOver() const;
+
 private:
 	const int32 playGames = 50;
 	int32 totalGameCount = 0;
@@ -23,6 +28,7 @@ private:
 	RenderTexture gameScene;
 	double gameTime=0;
 	double gameSpeed = 1.0;
-	double tempo = 120.0;
+	double tempo = 300.0;
 	double finishTime = 0;
+	bool gameOver = false;
 };

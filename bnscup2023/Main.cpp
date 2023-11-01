@@ -60,7 +60,7 @@ void Main()
 
 		//RenderTextureに書き込む
 		{
-			Cursor::RequestStyle(CursorStyle::Hidden);
+			if(Cursor::Pos().y>=0)Cursor::RequestStyle(CursorStyle::Hidden);
 
 			const double scale = (double)Scene::Height() / gameScene.height();
 			const Vec2 pos{ Scene::CenterF() - gameScene.size() * scale / 2 };
