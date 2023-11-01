@@ -139,7 +139,6 @@ public:
 
 	void draw(double t, double gameSpeed) const override
 	{
-		Print << t;
 		Rect{ 0, 0, SceneSize }.draw(Palette::Gray);
 		for (auto i : step(leafPos.size()))
 		{
