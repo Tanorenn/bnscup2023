@@ -54,6 +54,10 @@ void Game::update()
 
 void Game::draw() const
 {
+	if (gameOver) {
+		drawGameOver();
+		return;
+	}
 	const auto& game = getData().petitGames[gameIndex[gameCount]];
 	double fade = 0;
 	fade = 1;
