@@ -7,12 +7,18 @@ FireFighting::FireFighting()
 
 void FireFighting::init() {
 	Array<int32> id = { 0b1100, 0b0110, 0b0011, 0b1101, 0b1110, 0b0111, 0b1011, 0b1101, 0b0000 };
-	id.shuffle();
 	isSaved = false;
 	assert(id.size() == width * height);
-	for (int32 i = 0; i < width; ++i) {
-		for (int32 j = 0; j < height; ++j) {
-			map[Point(i,j)] = id[(i * width + j)];
+
+	for (int32 i = 0; i < 100; ++i) {
+		id.shuffle();
+		for (int32 i = 0; i < width; ++i) {
+			for (int32 j = 0; j < height; ++j) {
+				map[Point(i,j)] = id[(i * width + j)];
+			}
+		}
+		if (not isSolved()) {
+			break;
 		}
 	}
 }
@@ -39,17 +45,7 @@ void FireFighting::update(double t, double gameSpeed) {
 		map[blank] = map[click];
 		map[click] = 0;
 	}
-	const auto connected = isConnected();
-	bool c = false;
-	// 右端の列を見て、水が入っているかどうかを判定する
-	for (int32 i = 0; i < height; ++i) {
-		if (connected[Point(width-1,i)] && (map[Point(width - 1, i)] & (1 << 1))) {
-			c = true;
-		}
-	}
-	if (c) {
-		isSaved = true;
-	}
+	isSaved = isSolved();
 }
 
 
@@ -93,6 +89,17 @@ void FireFighting::draw(double t, double gameSpeed) const {
 	}
 }
 
+bool FireFighting::isSolved() const{
+	bool c = false;
+	const auto connected = isConnected();
+	// 右端の列を見て、水が入っているかどうかを判定する
+	for (int32 i = 0; i < height; ++i) {
+		if (connected[Point(width - 1, i)] && (map[Point(width - 1, i)] & (1 << 1))) {
+			c = true;
+		}
+	}
+	return c;
+}
 
 Point FireFighting::getPos(const Point p) const {
 	return p * size + Point(20, 53);
@@ -100,7 +107,7 @@ Point FireFighting::getPos(const Point p) const {
 
 
 bool FireFighting::isClear() {
-	return true;
+	return isSaved;
 }
 
 Grid<bool> FireFighting::isConnected() const{
@@ -114,7 +121,6 @@ Grid<bool> FireFighting::isConnected() const{
 				int32 j = (i + 2) % 4;
 				if (p2i(q) < 0 )continue;
 				if (map[q] & (1 << j)) {
-					Print << p << U" " << q;
 					ds.merge(p2i(p), p2i(q));
 				}
 			}

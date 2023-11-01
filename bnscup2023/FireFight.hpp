@@ -21,6 +21,7 @@ public:
 	bool isClear() override;
 	int32 p2i(const Point p) const;
 	Grid<bool> isConnected() const;
+	bool isSolved() const;
 };
 
 
