@@ -115,6 +115,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="FireFight.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SaveEarth.cpp" />
@@ -322,6 +324,8 @@
     <ClInclude Include="100Yen.hpp" />
     <ClInclude Include="Common.hpp" />
     <ClInclude Include="Effect.hpp" />
+    <ClInclude Include="Explosion.hpp" />
+    <ClInclude Include="FireFight.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="intermission.hpp" />
     <ClInclude Include="Mountain.hpp" />

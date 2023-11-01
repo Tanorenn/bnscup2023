@@ -22,7 +22,9 @@ struct GameData
 	Array<PetitGame*> petitGames
 	{
 		new SaveTheEarth(),
-		new HundredYen()
+		new HundredYen(),
+		new Explosion(),
+		new FireFighting()
 	};
 };
 

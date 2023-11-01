@@ -9,6 +9,8 @@
 # include "SaveEarth.hpp"
 # include "100Yen.hpp"
 # include "Sukuea.hpp"
+# include "Explosion.hpp"
+# include "FireFight.hpp"
 
 ///////////////////////////////////////////////////////////////
 //	ここに作ったゲームを入れる ってしたかったけど動かないからやめた

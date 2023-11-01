@@ -5,7 +5,7 @@ SaveTheEarth::SaveTheEarth()
 {}
 
 void SaveTheEarth::init() {
-	ballRad = Random(0, 360) * 1_deg;
+	ballRad = Random(360) * 1_deg;
 	ballDist = 200;
 	time = 0;
 	isSaved = false;
@@ -15,6 +15,7 @@ void SaveTheEarth::init() {
 
 void SaveTheEarth::update(double t, double gameSpeed) {
 	double dt = Scene::DeltaTime() * gameSpeed;
+	Print << ballRad;
 	if (isSaved) {
 		ballDist += dt * 500;
 	}
