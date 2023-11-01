@@ -25,12 +25,12 @@ void Game::update()
 	getData().myCursor.update();
 
 	if (KeyEnter.down() or gameTime>=1.5) {
+		totalGameCount++;
 		if (game->isClear())clearCount++;
-		if(not game->isClear() and clearCount - totalGameCount <= -3) {
+		if(not game->isClear() and clearCount - totalGameCount <= -4) {
 				changeScene(State::Title);
 		}
 		else if (totalGameCount < playGames) {
-			totalGameCount++;
 			if (gameCount == gameIndex.size() - Clamp((int)gameIndex.size() - 5, 1, 3)) {
 				gameIndex.shuffle();
 				gameCount = 0;
@@ -70,6 +70,7 @@ void Game::draw() const
 	drawIntermission(fade);
 	if (gameTime < 0)
 	{
+		if (not totalGameCount == 0 and totalGameCount % 3 == 0) FontAsset(U"ScoreFont")(U"Speed UP!").drawAt(20, SceneCenter.movedBy(0, -30), Palette::Yellow);
 		FontAsset(U"TitleSelectFont")(game->startCall).drawAt(60,SceneCenter.movedBy(2, 2), ColorF{ 0.0,0.4 });
 		FontAsset(U"TitleSelectFont")(game->startCall).drawAt(60,SceneCenter);
 	}
@@ -113,7 +114,7 @@ void Game::drawIntermission(double fade) const
 		rec.draw(ColorF{ 0.5 }).drawFrame(4, ColorF{ 0.3 });
 		double kankaku = 32 * (0.5 + fade / 2);
 		for (double y = rec.bottomY() - kankaku; y > rec.topY(); y -= kankaku) {
-			Line(rec.leftX(), y, rec.rightX(), y).draw(2, ColorF{0.3});
+			Line(rec.leftX(), y, rec.rightX(), y).draw(2, ColorF{ 0.3 });
 		}
 	}
 	if (gameTime > 1.0) {
