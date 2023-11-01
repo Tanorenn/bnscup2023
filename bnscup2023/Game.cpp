@@ -21,9 +21,7 @@ void Game::update()
 	gameTime += gameSpeed * Scene::DeltaTime();
 	auto& game = games[gameIndex[gameCount]];
 	game->update(Clamp(gameTime,0.0,1.0), gameSpeed);
-
-	if (0.0 <= gameTime <= 1.0) getData().myCursor.RequestStyle(game->cursorStile);
-	else getData().myCursor.RequestStyle(U"Release");
+	getData().myCursor.RequestStyle(game->CursorStyle);
 	getData().myCursor.update();
 
 	if (KeyEnter.down() or gameTime>=2.0) {
@@ -60,7 +58,6 @@ void Game::draw() const
 	}
 
 	getData().myCursor.draw();
-
 }
 
 void Game::drawIntermission(double fade) const
