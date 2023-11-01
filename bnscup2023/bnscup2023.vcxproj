@@ -333,6 +333,7 @@
     <ClInclude Include="PetitGame.hpp" />
     <ClInclude Include="PetitGames.hpp" />
     <ClInclude Include="SaveEarth.hpp" />
+    <ClInclude Include="SaveFood.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Sukuea.hpp" />
     <ClInclude Include="Title.hpp" />

@@ -821,7 +821,6 @@
     <ClInclude Include="SaveEarth.hpp">
       <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
-
     <ClInclude Include="intermission.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -842,6 +841,9 @@
     </ClInclude>
     <ClInclude Include="FireFight.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveFood.hpp">
+      <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

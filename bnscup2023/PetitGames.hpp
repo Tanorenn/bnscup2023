@@ -11,6 +11,7 @@
 # include "Sukuea.hpp"
 # include "Explosion.hpp"
 # include "FireFight.hpp"
+# include "SaveFood.hpp"
 
 ///////////////////////////////////////////////////////////////
 //	ここに作ったゲームを入れる ってしたかったけど動かないからやめた
