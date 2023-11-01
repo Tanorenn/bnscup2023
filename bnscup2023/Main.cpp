@@ -31,6 +31,7 @@ void Main()
 	TextureAsset::Register(U"コーラ", U"Image/Cola.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"コーヒー", U"Image/Coffee.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"エナジー", U"Image/Energy.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"まむし", U"Image/RED-VIPER.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"自動販売機", U"Image/zihanki.png", TextureDesc::Mipped);
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
