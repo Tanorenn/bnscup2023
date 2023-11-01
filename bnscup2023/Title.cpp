@@ -89,8 +89,12 @@ void Title::draw() const
 	//選択カーソル描画
 	if (FontAsset(U"TitleSelectFont")(U"すくう").regionAt(40, SceneCenter.movedBy(0, 60)).mouseOver() or FontAsset(U"TitleSelectFont")(U"おわる").regionAt(40, SceneCenter.movedBy(0, 95)).mouseOver())
 	{
-		Triangle{ SelectTrianglePoint[0], SelectTrianglePoint[1], SelectTrianglePoint[3] }.draw(ColorF(1 - Periodic::Jump0_1(0.5) * 0.25)).drawFrame(0.7, Palette::Black);
-		Triangle{ SelectTrianglePoint[3], SelectTrianglePoint[1], SelectTrianglePoint[2] }.draw(ColorF(0.5 + Periodic::Jump0_1(0.5) * 0.5)).drawFrame(0.7, Palette::Black);
+		Triangle selectTop{ SelectTrianglePoint[0], SelectTrianglePoint[1], SelectTrianglePoint[3] };
+		selectTop.drawFrame(0.5, Palette::Black);
+		selectTop.draw(ColorF(1 - Periodic::Jump0_1(0.5) * 0.25));
+		Triangle selectBottom{ SelectTrianglePoint[3], SelectTrianglePoint[1], SelectTrianglePoint[2] };
+		selectBottom.drawFrame(0.5, Palette::Black);
+		selectBottom.draw(ColorF(0.5 + Periodic::Jump0_1(0.5) * 0.5));
 	}
 
 	getData().myCursor.draw();

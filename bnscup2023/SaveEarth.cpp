@@ -1,7 +1,7 @@
 ﻿# include "SaveEarth.hpp"
 
 SaveTheEarth::SaveTheEarth()
-	:PetitGame{ U"地球救済"}
+	:PetitGame{ U"地球救済" }
 {}
 
 void SaveTheEarth::init() {

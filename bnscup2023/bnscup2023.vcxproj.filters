@@ -821,5 +821,8 @@
     <ClInclude Include="MyCursor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="100Yen.hpp">
+      <Filter>Header Files\PetitGames</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

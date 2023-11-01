@@ -1,4 +1,4 @@
-# pragma once
+﻿# pragma once
 # include <Siv3D.hpp>
 # include "PetitGame.hpp"
 
@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////
 
 # include "SaveEarth.hpp"
+# include "100Yen.hpp"
 # include "Sukuea.hpp"
 
 ///////////////////////////////////////////////////////////////

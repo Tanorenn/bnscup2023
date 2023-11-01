@@ -17,13 +17,20 @@ void Main()
 
 	FontAsset::Register(U"TitleBGFont", FontMethod::Bitmap, 13, Typeface::Bold);
 	FontAsset::Register(U"TitleSelectFont", FontMethod::MSDF, 120, U"Font/Buildingsandundertherailwaytracks-Regular.otf", FontStyle::Bitmap);
+	//タイトルロゴ
 	TextureAsset::Register(U"Logo", U"Image/logo.png", TextureDesc::Mipped);
+	//カーソル
 	TextureAsset::Register(U"Cursor_Point", U"Image/Cursor_Point.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"Cursor_Grab", U"Image/Cursor_Grab.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"Cursor_Release", U"Image/Cursor_Release.png", TextureDesc::Mipped);
 	TextureAsset::Load(U"Cursor_Point");
 	TextureAsset::Load(U"Cursor_Grab");
 	TextureAsset::Load(U"Cursor_Release");
+
+	TextureAsset::Register(U"コーラ", U"Image/Cola.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"コーヒー", U"Image/Coffee.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"エナジー", U"Image/Energy.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"自動販売機", U"Image/zihanki.png", TextureDesc::Mipped);
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
