@@ -1,7 +1,7 @@
 ﻿# include "SaveEarth.hpp"
 
 SaveTheEarth::SaveTheEarth()
-	:PetitGame{ U"地球救済"}
+	:PetitGame{ U"地球救済" }
 {}
 
 void SaveTheEarth::init() {
@@ -10,6 +10,7 @@ void SaveTheEarth::init() {
 	time = 0;
 	isSaved = false;
 	isBurn = false;
+	CursorStyle = U"Point";
 }
 
 void SaveTheEarth::update(double t, double gameSpeed) {

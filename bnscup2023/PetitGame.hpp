@@ -1,5 +1,6 @@
 ﻿# pragma once
 # include <Siv3D.hpp>
+# include "Effect.hpp"
 
 namespace
 {
@@ -22,6 +23,9 @@ public:
 
 	/// @brief ゲームの説明文(使わないと思う)
 	const String description = U"ゲームの説明文";
+
+	/// @brief 表示するカーソルの名前
+	String CursorStyle = U"Point";
 
 	/// @brief ゲームの初期化
 	PetitGame(const String& _title, const String& _startCall = U"すくえ！", const String& _description = U"")

@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////
 
 # include "SaveEarth.hpp"
+# include "100Yen.hpp"
 # include "Sukuea.hpp"
 # include "Explosion.hpp"
 # include "FireFight.hpp"

@@ -41,7 +41,7 @@ public:
 		//座標更新
 		pos.x += speed * Scene::DeltaTime();
 		pos.y -= speed * Scene::DeltaTime();
-		//上か横についたら表示するテキストをランダムにして初期位置に戻す
+		//上か右についたら表示するテキストをランダムにして位置を戻す
 		if (pos.x >= SceneWidth + 50)
 		{
 			text = Texts[Random(6)];
@@ -60,6 +60,7 @@ public:
 	}
 };
 
+
 // タイトルシーン
 class Title : public App::Scene
 {
@@ -72,11 +73,8 @@ public:
 	void draw() const override;
 
 private:
+	//背景の文字
 	Array<TitleBGText> bgtexts;
+	//選択した時に現れるカーソル
 	Array<Vec2> SelectTrianglePoint;
-
-
-	Vec2 SukuuLeftTopTrianglePoint = SceneCenter.movedBy(-65, 70);
-	Vec2 SukuuLeftBottomTrianglePoint = SceneCenter.movedBy(-65, 70);
-	Vec2 SukuuLeftCenterTrianglePoint = SceneCenter.movedBy(-50, 70);
 };
