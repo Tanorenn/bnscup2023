@@ -25,16 +25,16 @@ void Sukuea::init() {
 }
 
 void Sukuea::update(double t, double gameSpeed) {
-	cursorStile = U"Release";
+	CursorStyle = U"Release";
 	double dig = 1800_deg * (1.0 - t) * (1.0 - t);
 	for (int i = 0; i < polygons.size(); i++) {
 		const auto& pol = polygons[i].rotatedAt(polygons[i].centroid(), dig);
 		if (select != -1)continue;
 		if (pol.mouseOver()) {
-			cursorStile = U"Point";
+			CursorStyle = U"Point";
 		};
 		if (pol.leftClicked()) {
-			cursorStile = U"Grub";
+			CursorStyle = U"Grub";
 			select = i;
 		}
 	}

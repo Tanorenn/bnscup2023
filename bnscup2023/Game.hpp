@@ -15,7 +15,9 @@ public:
 	void drawTime() const;
 private:
 	const int32 playGames = 50;
+	int32 totalGameCount = 0;
 	int32 gameCount = 0;
+	int32 clearCount = 0;
 	const Array<PetitGame*>& games;
 	Array<size_t> gameIndex;
 	RenderTexture gameScene;
