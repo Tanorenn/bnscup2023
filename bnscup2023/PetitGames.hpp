@@ -1,4 +1,4 @@
-# pragma once
+﻿# pragma once
 # include <Siv3D.hpp>
 # include "PetitGame.hpp"
 
@@ -8,6 +8,8 @@
 
 # include "SaveEarth.hpp"
 # include "Sukuea.hpp"
+# include "Explosion.hpp"
+# include "FireFight.hpp"
 
 ///////////////////////////////////////////////////////////////
 //	ここに作ったゲームを入れる ってしたかったけど動かないからやめた

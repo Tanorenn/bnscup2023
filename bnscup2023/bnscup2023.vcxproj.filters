@@ -162,6 +162,12 @@
     <ClCompile Include="SaveEarth.cpp">
       <Filter>Source Files\PetitGames</Filter>
     </ClCompile>
+    <ClCompile Include="Explosion.cpp">
+      <Filter>Source Files\PetitGames</Filter>
+    </ClCompile>
+    <ClCompile Include="FireFight.cpp">
+      <Filter>Source Files\PetitGames</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -814,6 +820,15 @@
     </ClInclude>
     <ClInclude Include="SaveEarth.hpp">
       <Filter>Header Files\PetitGames</Filter>
+    </ClInclude>
+    <ClInclude Include="intermission.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion.hpp">
+      <Filter>Header Files\PetitGames</Filter>
+    </ClInclude>
+    <ClInclude Include="FireFight.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
