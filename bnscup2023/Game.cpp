@@ -93,7 +93,7 @@ void Game::draw() const
 		drawIntermission(fade);
 	}
 
-	if (gameTime < 0 and totalGameCount - clearCount >= 4)
+	if (gameTime < 0 and totalGameCount - clearCount < 4)
 	{
 		if (not totalGameCount == 0 and totalGameCount % 3 == 0) FontAsset(U"ScoreFont")(U"Speed UP!").drawAt(20, SceneCenter.movedBy(0, -30), Palette::Yellow);
 		FontAsset(U"TitleSelectFont")(game->startCall).drawAt(60,SceneCenter.movedBy(2, 2), ColorF{ 0.0,0.4 });
