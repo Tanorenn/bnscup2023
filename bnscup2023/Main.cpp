@@ -10,6 +10,7 @@ void Main()
 	Scene::SetResizeMode(ResizeMode::Keep);
 
 	FontAsset::Register(U"GameFont", FontMethod::MSDF, 150, U"example/font/RocknRoll/RocknRollOne-Regular.ttf");
+	FontAsset::Register(U"ScoreFont", 20, U"example/font/RocknRoll/RocknRollOne-Regular.ttf");
 	FontAsset(U"TitleFont").setBufferThickness(4);
 	FontAsset::Register(U"Menu", FontMethod::MSDF, 40, Typeface::Medium);
 	FontAsset::Register(U"Ranking", 40, Typeface::Heavy);
