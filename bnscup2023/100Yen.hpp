@@ -139,6 +139,7 @@ public:
 
 	void draw(double t, double gameSpeed) const override
 	{
+		Print << t;
 		Rect{ 0, 0, SceneSize }.draw(Palette::Gray);
 		for (auto i : step(leafPos.size()))
 		{
@@ -148,7 +149,7 @@ public:
 		if (not isCleared)Coin.scaled(0.25).drawAt(coinPos);
 		Hand.scaled(0.5).drawAt(handPos);
 		Ellipse{ 0, 0, 75, 50 }.draw(Palette::White).drawFrame(2, Palette::Black);
-		TextureAsset(U"自動販売機").resized(50, 40).drawAt(25 + Periodic::Triangle1_1(0.015 / gameSpeed) * 2, 20);
+		TextureAsset(U"自動販売機").resized(60, 48).drawAt(25 + Periodic::Triangle1_1(0.015 / gameSpeed), 20);
 		effect.update();
 
 
