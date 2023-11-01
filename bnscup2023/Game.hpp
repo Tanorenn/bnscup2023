@@ -1,5 +1,7 @@
 ﻿# pragma once
 # include "Common.hpp"
+# include "Mountain.hpp"
+
 // ゲームシーン
 class Game : public App::Scene
 {
@@ -21,8 +23,10 @@ private:
 	const Array<PetitGame*>& games;
 	Array<size_t> gameIndex;
 	RenderTexture gameScene;
-	double gameTime=0;
+	double gameTime = 0;
 	double gameSpeed = 1.0;
 	double tempo = 120.0;
 	double finishTime = 0;
+
+	Mountain mountain;
 };

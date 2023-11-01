@@ -324,6 +324,7 @@
     <ClInclude Include="Effect.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="intermission.hpp" />
+    <ClInclude Include="Mountain.hpp" />
     <ClInclude Include="MyCursor.hpp" />
     <ClInclude Include="PetitGame.hpp" />
     <ClInclude Include="PetitGames.hpp" />
