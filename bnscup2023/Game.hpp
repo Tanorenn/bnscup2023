@@ -14,7 +14,12 @@ public:
 	void draw() const override;
 
 	void drawIntermission(double fade) const;
+	void drawShutter(double fade) const;
 	void drawTime() const;
+
+	void updateGameOver();
+	void drawGameOver() const;
+
 private:
 	const int32 playGames = 50;
 	int32 totalGameCount = 0;
@@ -29,4 +34,5 @@ private:
 	double finishTime = 0;
 
 	Mountain mountain;
+	bool gameOver = false;
 };
