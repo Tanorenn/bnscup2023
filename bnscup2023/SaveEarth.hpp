@@ -6,6 +6,7 @@ class SaveTheEarth : public PetitGame
 public:
 	const Texture earth{ U"🌏"_emoji };
 	const Texture moon{ U"🌝"_emoji };
+	const Texture leftMoon{ U"🌗"_emoji };
 	const Texture comet{ U"☄️_emoji" };
 	const Texture soccerBall{ U"⚽"_emoji };
 	const Texture sun{ U"🌞"_emoji };
@@ -19,7 +20,13 @@ public:
 	bool isBurn = false;
 
 	Vec2 ballPos, moonPos;
-	
+
+	Array<Vec2> starPos;
+	Array<double> starSize;
+
+	Stopwatch stopwatch;
+	double clearT;
+
 	SaveTheEarth();
 	void init() override;
 	void update(double t, double gameSpeed) override;
