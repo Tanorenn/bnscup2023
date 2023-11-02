@@ -119,7 +119,26 @@ Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
 //
 //////////////////////////////////////////////////////
 
+// Font
+Resource(Font/Buildingsandundertherailwaytracks-Regular.otf)
+Resource(Font/Corporate-Logo-Rounded-Bold-ver3.otf)
+Resource(Font/RocknRollOne-Regular.ttf)
 
+// Image
+Resource(Image/Catch.png)
+Resource(Image/Coffee.png)
+Resource(Image/Cola.png)
+Resource(Image/Cursor_Grab.png)
+Resource(Image/Cursor_Hidden.png)
+Resource(Image/Cursor_Point.png)
+Resource(Image/Cursor_Release.png)
+Resource(Image/Dish.png)
+Resource(Image/Energy.png)
+Resource(Image/GYARR1.png)
+Resource(Image/GYARR2.png)
+Resource(Image/logo.png)
+Resource(Image/RED-VIPER.png)
+Resource(Image/zihanki.png)
 
 /* examples 
 
