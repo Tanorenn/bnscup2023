@@ -44,7 +44,7 @@ public:
 		if (grab and MouseL.pressed())
 		{
 			CursorStyle = U"Grab";
-			pinPos.y = Clamp(Cursor::PosF().y, 0.0, 50.0);
+			pinPos.y = Clamp(Cursor::PosF().y, 0.0, 80.0);
 		}
 		else if (not MouseL.pressed())
 		{

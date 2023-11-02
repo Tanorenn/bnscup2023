@@ -21,7 +21,7 @@ public:
 	void drawGameOver() const;
 
 private:
-	const int32 playGames = 50;
+	const int32 playGames = 999;
 	int32 totalGameCount = 0;
 	int32 gameCount = 0;
 	int32 clearCount = 0;
