@@ -9,6 +9,7 @@ private:
 	Vec2 pinPos = { 0, 0 };
 	Circle pin{ pinPos, 15 };
 	RectF pinBar{ Arg::topCenter(pinPos), 5, 150 };
+	Line arrow{ pinPos.movedBy(25, 25), pinPos.movedBy(25, -25) };
 	bool isCleared = false;
 	bool isFallen = false;
 
@@ -21,9 +22,10 @@ public:
 	void init() override
 	{
 		gyarraPos = Vec2{ -50, 150 };
-		pinPos = Vec2{ Random(100, 150), 50 };
-		pin = Circle{ pinPos, 15 };
-		pinBar = RectF{ Arg::topCenter(pinPos), 5, 150 };
+		pinPos = Vec2{ Random(100, 150), 80 };
+		pin = Circle{ pinPos, 20 };
+		pinBar = RectF{ Arg::topCenter(pinPos), 10, 120 };
+		arrow = Line{ pinPos.movedBy(35, 25), pinPos.movedBy(35, -25) };
 		grab = false;
 		isCleared = false;
 		isFallen = false;
@@ -66,9 +68,10 @@ public:
 	void draw(double t, double gameSpeed) const override
 	{
 		RectF{ 0, 0, SceneSize }.draw(Palette::Silver);
-		TextureAsset(U"ギャーア" + Format(1 + (int)Periodic::Square0_1(0.01 / gameSpeed))).mirrored().resized(50, 50).draw(gyarraPos);
+		TextureAsset(U"ギャーア" + Format(1 + (int)Periodic::Square0_1(0.05 / gameSpeed))).mirrored().resized(50, 50).draw(gyarraPos);
 		pinBar.drawFrame(1, Palette::Black).draw(Palette::Darkblue);
 		pin.drawFrame(1, Palette::Black).draw(Palette::Peru);
+		arrow.drawArrow(10, Vec2{ 20, 20 }, HSV(0, Periodic::Square0_1(0.05 / gameSpeed) * 0.5 + 0.5 , 1));
 		if (isCleared)
 		{
 			//FontAsset(U"GYARR")(U"不正解者が全員ゴールしました！").drawAt(SceneCenter, Palette::Magenta);
