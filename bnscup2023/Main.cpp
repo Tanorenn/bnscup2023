@@ -45,6 +45,8 @@ void Main()
 	//ギャーア君
 	TextureAsset::Register(U"ギャーア1", Resource(U"Image/GYARR1.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"ギャーア2", Resource(U"Image/GYARR2.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"ゴール1", Resource(U"Image/Goal1.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"ゴール2", Resource(U"Image/Goal2.png"), TextureDesc::Mipped);
 	FontAsset::Register(U"GYARR", FontMethod::SDF, 120, Resource(U"Font/Corporate-Logo-Rounded-Bold-ver3.otf"));
 	FontAsset(U"GYARR").preload(U"不正解者が全員ゴールしました！");
 

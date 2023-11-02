@@ -72,6 +72,8 @@ public:
 		pinBar.drawFrame(1, Palette::Black).draw(Palette::Darkblue);
 		pin.drawFrame(1, Palette::Black).draw(Palette::Peru);
 		arrow.drawArrow(10, Vec2{ 20, 20 }, HSV(0, Periodic::Square0_1(0.05 / gameSpeed) * 0.2 + 0.8 , 1));
+		RectF{ 0, 200, 200, 10 }.drawFrame(2, Palette::Midnightblue).draw(Palette::Mediumpurple);
+		RectF{ 200, 200, 200, 10 }.drawFrame(2, Palette::Midnightblue).draw(Palette::Gold);
 		if (isCleared)
 		{
 			//FontAsset(U"GYARR")(U"不正解者が全員ゴールしました！").drawAt(SceneCenter, Palette::Magenta);
