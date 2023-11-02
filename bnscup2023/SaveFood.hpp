@@ -19,8 +19,10 @@ private:
 		Texture{ Emoji{ U"🌭" } },
 		Texture{ Emoji{ U"🥪" } },
 		Texture{ Emoji{ U"🍣" } },
-		Texture{ Emoji{ U"🌮" } }
+		Texture{ Emoji{ U"🧇" } }
 	};
+
+	const Texture scream{ U"😱"_emoji };
 
 public:
 	SaveFood()
@@ -53,28 +55,33 @@ public:
 				isCleared = true;
 				stopwatch.start();
 			}
+			else if (foodPos.y > 220)
+			{
+				stopwatch.start();
+			}
 
 		}
 		else if (isCleared)
 		{
 			foodPos.y = 210;
 			foodPos.x = Cursor::PosF().x - fallenFood.w / 2.0;
-			clearT = Min(stopwatch.sF() * 4 * gameSpeed, 1.0);
 		}
+		clearT = Min(stopwatch.sF() * 4 * gameSpeed, 1.0);
 	}
 
 	void draw(double t, double gameSpeed) const override
 	{
 		RectF{ 0, 0, SceneSize }.draw(Arg::top = ColorF{ 0.5, 0.7, 0.9 }, Arg::bottom = ColorF{ 0.5, 0.9, 0.7 });
-		TextureAsset(U"見せ皿").resized(350, 200).drawAt(SceneCenter.movedBy(-10, -70 + EaseOutCubic(clearT) * 30), ColorF(1, EaseOutCubic(clearT)));
-		foods[foodNum].drawAt(SceneCenter.movedBy(0, -70 + EaseOutCubic(clearT) * 30), ColorF(1, EaseOutCubic(clearT)));
 
 		if (not isCleared)
 		{
+			scream.scaled(2).drawAt(SceneCenter.movedBy(0, 200 - EaseOutCubic(clearT) * 200), ColorF(1, EaseOutCubic(clearT) * 0.5));
 			fallenFood.rotated(t * 1080_deg * 6).drawFrame(2, Palette::Black).draw(Palette::Darkgoldenrod);
 		}
 		else if (isCleared)
 		{
+			TextureAsset(U"見せ皿").resized(350, 200).drawAt(SceneCenter.movedBy(-10, -70 + EaseOutCubic(clearT) * 30), ColorF(1, EaseOutCubic(clearT) * 0.5));
+			foods[foodNum].drawAt(SceneCenter.movedBy(0, -70 + EaseOutCubic(clearT) * 30), ColorF(1, EaseOutCubic(clearT) * 0.5));
 			fallenFood.drawFrame(2, Palette::Black).draw(Palette::Darkgoldenrod);
 		}
 		TextureAsset(U"受け皿").resized(80, 60).drawAt(Vec2{ Cursor::PosF().x, 225 });
