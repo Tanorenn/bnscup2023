@@ -195,7 +195,7 @@ public:
 
 	void drawDot(double thick = 1) const
 	{
-		for (size_t y = points.height() - 1; y--; y > 0)
+		for (size_t y = points.height() - 1; y > 0; y--)
 		{
 			for (auto x : step(points.width()))
 			{
@@ -206,7 +206,7 @@ public:
 
 	void drawDot(double thick, ColorF color) const
 	{
-		for (size_t y = points.height() - 1; y--; y > 0)
+		for (size_t y = points.height() - 1; y > 0; y--)
 		{
 			for (auto x : step(points.width()))
 			{
@@ -217,7 +217,7 @@ public:
 
 	void drawLine(double thick = 1) const
 	{
-		for (size_t y = points.height() - 1; y--; y > 0)
+		for (size_t y = points.height() - 1; y > 0; y--)
 		{
 			for (auto x : step(points.width()))
 			{
@@ -231,7 +231,7 @@ public:
 
 	void drawLine(double thick, ColorF color) const
 	{
-		for (size_t y = points.height() - 1; y--; y > 0)
+		for (size_t y = points.height() - 1; y > 0; y--)
 		{
 			for (auto x : step(points.width()))
 			{
@@ -245,7 +245,7 @@ public:
 
 	void drawQuad() const
 	{
-		for (size_t y = points.height() - 2; y--; y > 0)
+		for (size_t y = points.height() - 2; y > 0; y--)
 		{
 			for (auto x : step(points.width()))
 			{
@@ -259,7 +259,7 @@ public:
 
 	void drawQuad(ColorF color) const
 	{
-		for (size_t y = points.height() - 2; y--; y > 0)
+		for (size_t y = points.height() - 2; y > 0; y--)
 		{
 			for (auto x : step(points.width()))
 			{

@@ -66,7 +66,7 @@ public:
 		coinPos = Vec2{ Random(50, 200), Random(50, 150) };
 		handPos = Vec2{ 50, 200 };
 		handVelocity = 100.0 * 4;
-		double GoX = 0;
+		GoX = 0;
 		isCleared = false;
 		state = MOVE;
 		clearT = 0;
