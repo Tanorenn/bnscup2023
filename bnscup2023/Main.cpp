@@ -49,6 +49,7 @@ void Main()
 	TextureAsset::Register(U"ゴール2", Resource(U"Image/Goal2.png"), TextureDesc::Mipped);
 	FontAsset::Register(U"GYARR", FontMethod::SDF, 120, Resource(U"Font/Corporate-Logo-Rounded-Bold-ver3.otf"));
 	FontAsset(U"GYARR").preload(U"不正解者が全員ゴールしました！");
+	AudioAsset::Register(U"GYARRABGM", Resource(U"Audio/GYARRBGM.mp3"));
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 

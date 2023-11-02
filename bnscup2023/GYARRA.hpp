@@ -29,11 +29,18 @@ public:
 		grab = false;
 		isCleared = false;
 		isFallen = false;
+		AudioAsset(U"GYARRABGM").stop();
 		CursorStyle = U"Release";
 	}
 
 	void update(double t, double gameSpeed) override
 	{
+		Print << gameSpeed;
+		if (t < 0.1)
+		{
+			AudioAsset(U"GYARRABGM").play();
+			AudioAsset(U"GYARRABGM").setSpeed(gameSpeed * 4);
+		}
 		CursorStyle = U"Release";
 		//ピンをつかんだら掴んだ判定オン
 		if (pin.leftPressed())
@@ -67,16 +74,25 @@ public:
 
 	void draw(double t, double gameSpeed) const override
 	{
-		RectF{ 0, 0, SceneSize }.draw(Palette::Silver);
+		RectF{ 0, 0, SceneSize }.draw(Arg::top = Palette::Seagreen, Arg::bottom = Palette::Palegreen);
+
+		//ゴールとギャーア
+		TextureAsset(U"ゴール1").resized(100, 100).draw(175, 100);
 		TextureAsset(U"ギャーア" + Format(1 + (int)Periodic::Square0_1(0.05 / gameSpeed))).mirrored().resized(50, 50).draw(gyarraPos);
+		TextureAsset(U"ゴール2").resized(100, 100).draw(175, 100);
+		FontAsset(U"GYARR")(U"GOAL").drawAt(25, 225, 130, HSV(360 * t * 3, 1, 1, 0.3));
+
+		//ピンと矢印
 		pinBar.drawFrame(1, Palette::Black).draw(Palette::Darkblue);
 		pin.drawFrame(1, Palette::Black).draw(Palette::Peru);
 		arrow.drawArrow(10, Vec2{ 20, 20 }, HSV(0, Periodic::Square0_1(0.05 / gameSpeed) * 0.2 + 0.8 , 1));
+
+		//地面
 		RectF{ 0, 200, 200, 10 }.drawFrame(2, Palette::Midnightblue).draw(Palette::Mediumpurple);
 		RectF{ 200, 200, 200, 10 }.drawFrame(2, Palette::Midnightblue).draw(Palette::Gold);
+
 		if (isCleared)
 		{
-			//FontAsset(U"GYARR")(U"不正解者が全員ゴールしました！").drawAt(SceneCenter, Palette::Magenta);
 			FontAsset(U"GYARR")(U"不正解者が全員ゴールしました！").drawAt(TextStyle::Outline(0, 1, Palette::Black), 20, SceneCenter, Palette::Magenta);
 		}
 	}
