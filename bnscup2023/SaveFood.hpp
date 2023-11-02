@@ -18,7 +18,7 @@ private:
 		Texture{ Emoji{ U"🍕" } },
 		Texture{ Emoji{ U"🌭" } },
 		Texture{ Emoji{ U"🥪" } },
-		Texture{ Emoji{ U"🍣" } },
+		Texture{ Emoji{ U"🦀" } },
 		Texture{ Emoji{ U"🧇" } }
 	};
 
