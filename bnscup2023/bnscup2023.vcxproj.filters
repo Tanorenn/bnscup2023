@@ -845,5 +845,8 @@
     <ClInclude Include="FireFight.hpp">
       <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
+    <ClInclude Include="GYARRA.hpp">
+      <Filter>Header Files\PetitGames</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

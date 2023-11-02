@@ -42,6 +42,11 @@ void Main()
 	TextureAsset::Register(U"見せ皿", U"Image/Dish.png", TextureDesc::Mipped);
 	TextureAsset::Load(U"受け皿");
 	TextureAsset::Load(U"見せ皿");
+	//ギャーア君
+	TextureAsset::Register(U"ギャーア1", U"Image/GYARR1.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"ギャーア2", U"Image/GYARR2.png", TextureDesc::Mipped);
+	FontAsset::Register(U"GYARR", FontMethod::SDF, 120, U"Font/Corporate-Logo-Rounded-Bold-ver3.otf");
+	FontAsset(U"GYARR").preload(U"不正解者が全員ゴールしました！");
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
