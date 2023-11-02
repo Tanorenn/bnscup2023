@@ -11,7 +11,7 @@ void Main()
 
 	FontAsset::Register(U"GameFont", FontMethod::MSDF, 150, U"example/font/RocknRoll/RocknRollOne-Regular.ttf");
 	FontAsset::Register(U"ScoreFont", 20, U"example/font/RocknRoll/RocknRollOne-Regular.ttf");
-	FontAsset(U"TitleFont").setBufferThickness(4);
+	FontAsset::Register(U"GameOverFont", 35, U"example/font/RocknRoll/RocknRollOne-Regular.ttf");
 	FontAsset::Register(U"Menu", FontMethod::MSDF, 40, Typeface::Medium);
 	FontAsset::Register(U"Ranking", 40, Typeface::Heavy);
 	FontAsset::Register(U"GameScore", 30, Typeface::Light);
@@ -24,14 +24,29 @@ void Main()
 	TextureAsset::Register(U"Cursor_Point", U"Image/Cursor_Point.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"Cursor_Grab", U"Image/Cursor_Grab.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"Cursor_Release", U"Image/Cursor_Release.png", TextureDesc::Mipped);
-	TextureAsset::Load(U"Cursor_Point");
-	TextureAsset::Load(U"Cursor_Grab");
-	TextureAsset::Load(U"Cursor_Release");
+	TextureAsset::Register(U"Cursor_Hidden", U"Image/Cursor_Hidden.png");
 
+	//自動販売機
 	TextureAsset::Register(U"コーラ", U"Image/Cola.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"コーヒー", U"Image/Coffee.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"エナジー", U"Image/Energy.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"まむし", U"Image/RED-VIPER.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"自動販売機", U"Image/zihanki.png", TextureDesc::Mipped);
+	TextureAsset::Load(U"コーラ");
+	TextureAsset::Load(U"コーヒー");
+	TextureAsset::Load(U"エナジー");
+	TextureAsset::Load(U"まむし");
+	TextureAsset::Load(U"自動販売機");
+	//食品ロス
+	TextureAsset::Register(U"受け皿", U"Image/Catch.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"見せ皿", U"Image/Dish.png", TextureDesc::Mipped);
+	TextureAsset::Load(U"受け皿");
+	TextureAsset::Load(U"見せ皿");
+	//ギャーア君
+	TextureAsset::Register(U"ギャーア1", U"Image/GYARR1.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"ギャーア2", U"Image/GYARR2.png", TextureDesc::Mipped);
+	FontAsset::Register(U"GYARR", FontMethod::SDF, 120, U"Font/Corporate-Logo-Rounded-Bold-ver3.otf");
+	FontAsset(U"GYARR").preload(U"不正解者が全員ゴールしました！");
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
@@ -43,6 +58,7 @@ void Main()
 	manager.get().get()->myCursor.Register(U"Point", CursorInfo{ U"Cursor_Point", Vec2{ 3, 15 }, 0.025 });
 	manager.get().get()->myCursor.Register(U"Grab", CursorInfo{ U"Cursor_Grab", Vec2{ 3, 15 }, 0.025 });
 	manager.get().get()->myCursor.Register(U"Release", CursorInfo{ U"Cursor_Release", Vec2{ 3, 15 }, 0.025 });
+	manager.get().get()->myCursor.Register(U"Hidden", CursorInfo{ U"Cursor_Hidden", Vec2{ 0, 0 }, 0.025 });
 	manager.get().get()->myCursor.RequestStyle(U"Release");
 	manager.get().get()->myCursor.update();
 

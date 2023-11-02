@@ -21,9 +21,12 @@ struct GameData
 	//ゲーム一覧
 	Array<PetitGame*> petitGames
 	{
-		//new SaveTheEarth(),
-		//new HundredYen(),
-		//new Explosion(),
+		new SaveTheEarth(),
+		new HundredYen(),
+		new Explosion(),
+		new FireFighting(),
+		new SaveFood(),
+		new GYARRA(),
 		new FireFighting()
 	};
 };

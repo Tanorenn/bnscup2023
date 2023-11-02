@@ -30,9 +30,11 @@ private:
 	RenderTexture gameScene;
 	double gameTime = 0;
 	double gameSpeed = 1.0;
-	double tempo = 120.0;
+	double tempo = 300.0;
 	double finishTime = 0;
 
 	Mountain mountain;
 	bool gameOver = false;
+	bool restart = false;
+	Array<Vec2> SelectTrianglePoint;
 };
