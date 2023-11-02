@@ -14,6 +14,13 @@ Game::Game(const InitData& init)
 	gameSpeed = 1.0 / finishTime;
 	gameTime = -0.5;
 
+	SelectTrianglePoint.clear();
+
+	for (auto i : step(4))
+	{
+		SelectTrianglePoint << Vec2{ 0, 0 };
+	}
+
 	mountain = Mountain{ 20, 20 }
 		._setYStart(SceneHeight + 50)
 		._setYEnd(SceneCenter.y + 70)
@@ -30,22 +37,23 @@ Game::Game(const InitData& init)
 void Game::update()
 {
 	gameTime += gameSpeed * Scene::DeltaTime();
+	if (gameOver or restart) {
+		updateGameOver();
+		return;
+	}
+
 	auto& game = games[gameIndex[gameCount]];
 	if (0.0 <= gameTime and gameTime <= 1.0)game->update(Clamp(gameTime, 0.0, 1.0), gameSpeed);
 	getData().myCursor.RequestStyle(game->CursorStyle);
 	getData().myCursor.update();
-	if (gameOver) {
-
-	}
-
 
 	if (KeyEnter.down() or gameTime>=1.5) {
 		totalGameCount++;
 		if (game->isClear())clearCount++;
-		if(not game->isClear() and clearCount - totalGameCount <= -4) {
+		if (not game->isClear() and clearCount - totalGameCount <= -4) {
 			gameTime = 999;
 			gameOver = true;
-			changeScene(State::Title);
+			//changeScene(State::Title);
 		}
 		else if (totalGameCount < playGames) {
 			if (gameCount == gameIndex.size() - Clamp((int)gameIndex.size() - 5, 1, 3)) {
@@ -59,7 +67,7 @@ void Game::update()
 			gameSpeed = 1.0 / finishTime;
 			gameTime = -0.5;
 		}
-		else changeScene(State::Title);
+		else gameOver = true;
 	}
 }
 
@@ -106,7 +114,7 @@ void Game::draw() const
 void Game::drawIntermission(double fade) const
 {
 	const auto& game = getData().petitGames[gameIndex[gameCount]];
-	FontAsset(U"GameFont")(game->title).drawAt(40, SceneCenter.movedBy(0, -100));
+	//FontAsset(U"GameFont")(game->title).drawAt(40, SceneCenter.movedBy(0, -100));
 	if (gameTime > 1.0 and game->isClear()) {
 		FontAsset(U"ScoreFont")(999).regionAt(20, 30, 80).stretched(5, 5).drawFrame(3, ColorF{ 0.9,0.9,0.6 });
 		if ((int32)(gameTime * 16) % 2 == 1)FontAsset(U"ScoreFont")(U"{:03}"_fmt(clearCount + 1)).drawAt(20, 30, 80);
@@ -168,15 +176,77 @@ void Game::drawTime() const {
 }
 
 void Game::updateGameOver() {
-	
+	getData().myCursor.RequestStyle(U"Release");
+	if (MouseL.pressed())
+	{
+		getData().myCursor.RequestStyle(U"Grab");
+	}
+	if (restart) {
+		if (gameTime >= -0.5) {
+			restart = false;
+			gameOver = false;
+		}
+		return;
+	}
+	if (FontAsset(U"TitleSelectFont")(U"もういちど すくう").regionAt(30, SceneCenter.movedBy(0, 60)).mouseOver()) {
+		getData().myCursor.RequestStyle(U"Point");
+		SelectTrianglePoint[0] = SceneCenter.movedBy(-105, 68) + Vec2{0, Periodic::Jump0_1(0.5) * 8};
+		SelectTrianglePoint[2] = SceneCenter.movedBy(-105, 68) - Vec2{0, Periodic::Jump0_1(0.5) * 8};
+		SelectTrianglePoint[1] = SceneCenter.movedBy(-90, 68);
+		SelectTrianglePoint[3] = SceneCenter.movedBy(-100, 68);
+		if (MouseL.down()) {
+			totalGameCount = 0;
+			gameCount = 0;
+			clearCount = 0;
+			gameIndex.shuffle();
+			games[gameIndex[0]]->init();
+			tempo = 120;
+			finishTime = 60.0 * 8 / tempo;
+			gameSpeed = 1.0 / finishTime;
+			gameTime = -0.75;
+			restart = true;
+			gameOver = true;
+		}
+
+	}
+	if (FontAsset(U"TitleSelectFont")(U"タイトルへ　もどる").drawAt(30, SceneCenter.movedBy(0, 97)).mouseOver()) {
+		getData().myCursor.RequestStyle(U"Point");
+		SelectTrianglePoint[0] = SceneCenter.movedBy(-105, 103) + Vec2{ 0, Periodic::Jump0_1(0.5) * 8 };
+		SelectTrianglePoint[2] = SceneCenter.movedBy(-105, 103) - Vec2{ 0, Periodic::Jump0_1(0.5) * 8 };
+		SelectTrianglePoint[1] = SceneCenter.movedBy(-90, 103);
+		SelectTrianglePoint[3] = SceneCenter.movedBy(-100, 103);
+		if (MouseL.down())
+		{
+			changeScene(State::Title);
+		}
+	}
+	getData().myCursor.update();
 }
 
 void Game::drawGameOver() const {
-	FontAsset(U"TitleFont")(U"GAME OVER").drawAt(SceneCenter.movedBy(0, -60), Palette::Red);
-	FontAsset(U"GameFont")(U"SCORE {:03}"_fmt(clearCount)).drawAt(SceneCenter.movedBy(0, -10), Palette::Yellow);
-	FontAsset(U"TitleSelectFont")(U"もういちど すくう").drawAt(SceneCenter.movedBy(2, 62), Palette::Black);
-	FontAsset(U"TitleSelectFont")(U"もういちど すくう").drawAt(SceneCenter.movedBy(0, 60));
-	FontAsset(U"TitleSelectFont")(U"タイトルへ　もどる").drawAt(SceneCenter.movedBy(0, 97), Palette::Black);
-	FontAsset(U"TitleSelectFont")(U"タイトルへ　もどる").drawAt(SceneCenter.movedBy(0, 95));
+	if (restart) {
+		const double fade = - 2.0 - gameTime * 4;
+		drawIntermission(fade);
+		return;
+	}
+	gameScene.drawAt(SceneCenter);
+	FontAsset(U"ScoreFont")(U"ゲームオーバー").drawAt(35, SceneCenter.movedBy(2, -62), Palette::Black);
+	FontAsset(U"ScoreFont")(U"ゲームオーバー").drawAt(35, SceneCenter.movedBy(0, -60), Palette::Red);
+	FontAsset(U"ScoreFont")(U"スコア {:03}"_fmt(clearCount)).drawAt(30, SceneCenter.movedBy(2, -12), Palette::Black);
+	FontAsset(U"ScoreFont")(U"スコア {:03}"_fmt(clearCount)).drawAt(30, SceneCenter.movedBy(0, -10), Palette::Yellow);
+	FontAsset(U"TitleSelectFont")(U"もういちど すくう").drawAt(30,SceneCenter.movedBy(2, 62), Palette::Black);
+	FontAsset(U"TitleSelectFont")(U"もういちど すくう").drawAt(30,SceneCenter.movedBy(0, 60));
+	FontAsset(U"TitleSelectFont")(U"タイトルへ　もどる").drawAt(30,SceneCenter.movedBy(0, 97), Palette::Black);
+	FontAsset(U"TitleSelectFont")(U"タイトルへ　もどる").drawAt(30,SceneCenter.movedBy(0, 95));
+	if (FontAsset(U"TitleSelectFont")(U"もういちど すくう").regionAt(40, SceneCenter.movedBy(0, 60)).mouseOver() or FontAsset(U"TitleSelectFont")(U"タイトルへ　もどる").regionAt(40, SceneCenter.movedBy(0, 95)).mouseOver())
+	{
+		Triangle selectTop{ SelectTrianglePoint[0], SelectTrianglePoint[1], SelectTrianglePoint[3] };
+		selectTop.drawFrame(0.5, Palette::Black);
+		selectTop.draw(ColorF(1 - Periodic::Jump0_1(0.5) * 0.25));
+		Triangle selectBottom{ SelectTrianglePoint[3], SelectTrianglePoint[1], SelectTrianglePoint[2] };
+		selectBottom.drawFrame(0.5, Palette::Black);
+		selectBottom.draw(ColorF(0.5 + Periodic::Jump0_1(0.5) * 0.5));
+	}
 
+	getData().myCursor.draw();
 }
