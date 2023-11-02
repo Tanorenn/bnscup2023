@@ -29,6 +29,6 @@ public:
 	void update(double t, double GameSpeed) override {
 		
 	}
-	void draw(double t, double GameSpeed) const override;
-	bool isClear() override;
+	void draw(double t, double GameSpeed) const override {}
+	bool isClear() override { return true; }
 };
