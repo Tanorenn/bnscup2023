@@ -6,17 +6,34 @@ FireFighting::FireFighting()
 {}
 
 void FireFighting::init() {
-	Array<int32> id = { 0b1100, 0b0110, 0b0011, 0b1101, 0b1110, 0b0111, 0b1011, 0b1101, 0b0000 };
+	Array<int32> id = { 0b1100, 0b0110, 0b0011, 0b1001, 0b1110, 0b0111, 0b1011, 0b1101, 0b0000 };
 	isSaved = false;
 	assert(id.size() == width * height);
 
-	for (int32 i = 0; i < 100; ++i) {
+	for (int32 i = 0; i < 1000; ++i) {
 		id.shuffle();
 		for (int32 i = 0; i < width; ++i) {
 			for (int32 j = 0; j < height; ++j) {
 				map[Point(i,j)] = id[(i * width + j)];
 			}
 		}
+		if (isSolved()) {
+			break;
+		}
+	}
+	// 一つだけずらす
+	Array<Point> R = { Point(1,0),Point(-1,0),Point(0,1),Point(0,-1) };
+	for (int32 i = 0; i < 100; ++i) {
+		Point blank;
+		for (Point p : step({ width, height })) {
+			if (map[p] == 0) {
+				blank = p;
+			}
+		}
+		Point next = blank.movedBy(R.choice());
+		if (next.x < 0 || next.x >= width || next.y < 0 || next.y >= height)continue;
+		map[blank] = map[next];
+		map[next] = 0;
 		if (not isSolved()) {
 			break;
 		}
@@ -69,7 +86,7 @@ void FireFighting::draw(double t, double gameSpeed) const {
 
 	// 0,0の左から水が入る
 	Line(getPos(Point(-1, 0)) + size / 2, getPos(Point(-1, 0)) + size / 2 + Point(1, 0) * size / 2).draw(8, Palette::Black).draw(6, Palette::Lightskyblue);
-	for (int32 i = 0; i < height; ++i)Line(getPos(Point(width, i)) + size / 2, getPos(Point(width, i)) + size / 2 + Point(-1, 0) * size / 2).draw(8, Palette::Black).draw(6, connected[Point(width-1,i)] && (map[Point(width-1,i)] & (1 << 1)) ? Palette::Lightskyblue : Palette::Black);
+	for (int32 i = 0; i < 1; ++i)Line(getPos(Point(width, i)) + size / 2, getPos(Point(width, i)) + size / 2 + Point(-1, 0) * size / 2).draw(8, Palette::Black).draw(6, connected[Point(width-1,i)] && (map[Point(width-1,i)] & (1 << 1)) ? Palette::Lightskyblue : Palette::Black);
 	for (Point p : step({ width, height }))
 
 	{
@@ -93,11 +110,12 @@ bool FireFighting::isSolved() const{
 	bool c = false;
 	const auto connected = isConnected();
 	// 右端の列を見て、水が入っているかどうかを判定する
-	for (int32 i = 0; i < height; ++i) {
+	for (int32 i = 0; i < 1; ++i) {
 		if (connected[Point(width - 1, i)] && (map[Point(width - 1, i)] & (1 << 1))) {
 			c = true;
 		}
 	}
+	if ((map[Point(0, 0)] & (1 << 3))==0)c = false;
 	return c;
 }
 
