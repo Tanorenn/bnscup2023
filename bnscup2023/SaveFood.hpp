@@ -15,7 +15,7 @@ private:
 	Array<Texture> foods
 	{
 		Texture{ Emoji{ U"🍔" } },
-		Texture{ Emoji{ U"🍕" } },
+		Texture{ Emoji{ U"🍣" } },
 		Texture{ Emoji{ U"🌭" } },
 		Texture{ Emoji{ U"🥪" } },
 		Texture{ Emoji{ U"🦀" } },
