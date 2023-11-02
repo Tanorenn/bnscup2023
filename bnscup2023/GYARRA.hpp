@@ -71,7 +71,7 @@ public:
 		TextureAsset(U"ギャーア" + Format(1 + (int)Periodic::Square0_1(0.05 / gameSpeed))).mirrored().resized(50, 50).draw(gyarraPos);
 		pinBar.drawFrame(1, Palette::Black).draw(Palette::Darkblue);
 		pin.drawFrame(1, Palette::Black).draw(Palette::Peru);
-		arrow.drawArrow(10, Vec2{ 20, 20 }, HSV(0, Periodic::Square0_1(0.05 / gameSpeed) * 0.5 + 0.5 , 1));
+		arrow.drawArrow(10, Vec2{ 20, 20 }, HSV(0, Periodic::Square0_1(0.05 / gameSpeed) * 0.2 + 0.8 , 1));
 		if (isCleared)
 		{
 			//FontAsset(U"GYARR")(U"不正解者が全員ゴールしました！").drawAt(SceneCenter, Palette::Magenta);
