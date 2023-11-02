@@ -32,9 +32,16 @@ void Main()
 	TextureAsset::Register(U"エナジー", U"Image/Energy.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"まむし", U"Image/RED-VIPER.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"自動販売機", U"Image/zihanki.png", TextureDesc::Mipped);
+	TextureAsset::Load(U"コーラ");
+	TextureAsset::Load(U"コーヒー");
+	TextureAsset::Load(U"エナジー");
+	TextureAsset::Load(U"まむし");
+	TextureAsset::Load(U"自動販売機");
 	//食品ロス
 	TextureAsset::Register(U"受け皿", U"Image/Catch.png", TextureDesc::Mipped);
 	TextureAsset::Register(U"見せ皿", U"Image/Dish.png", TextureDesc::Mipped);
+	TextureAsset::Load(U"受け皿");
+	TextureAsset::Load(U"見せ皿");
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
