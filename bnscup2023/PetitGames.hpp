@@ -12,6 +12,7 @@
 # include "Explosion.hpp"
 # include "FireFight.hpp"
 # include "SaveFood.hpp"
+# include "GYARRA.hpp"
 
 ///////////////////////////////////////////////////////////////
 //	ここに作ったゲームを入れる ってしたかったけど動かないからやめた
