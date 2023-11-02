@@ -9,39 +9,46 @@ void Main()
 	Scene::Resize(800, 600);
 	Scene::SetResizeMode(ResizeMode::Keep);
 
-	FontAsset::Register(U"GameFont", FontMethod::MSDF, 150, U"example/font/RocknRoll/RocknRollOne-Regular.ttf");
-	FontAsset::Register(U"ScoreFont", 20, U"example/font/RocknRoll/RocknRollOne-Regular.ttf");
-	FontAsset::Register(U"GameOverFont", 40, U"example/font/RocknRoll/RocknRollOne-Regular.ttf");
+	FontAsset::Register(U"GameFont", FontMethod::MSDF, 150, Resource(U"Font/RocknRollOne-Regular.ttf"));
+	FontAsset::Register(U"ScoreFont", 20, Resource(U"Font/RocknRollOne-Regular.ttf"));
+	FontAsset::Register(U"GameOverFont", 35, Resource(U"Font/RocknRollOne-Regular.ttf"));
 	FontAsset::Register(U"Menu", FontMethod::MSDF, 40, Typeface::Medium);
 	FontAsset::Register(U"Ranking", 40, Typeface::Heavy);
 	FontAsset::Register(U"GameScore", 30, Typeface::Light);
 
 	FontAsset::Register(U"TitleBGFont", FontMethod::Bitmap, 13, Typeface::Bold);
-	FontAsset::Register(U"TitleSelectFont", FontMethod::MSDF, 120, U"Font/Buildingsandundertherailwaytracks-Regular.otf", FontStyle::Bitmap);
+	FontAsset::Register(U"TitleSelectFont", FontMethod::MSDF, 120, Resource(U"Font/Buildingsandundertherailwaytracks-Regular.otf"), FontStyle::Bitmap);
 	//タイトルロゴ
-	TextureAsset::Register(U"Logo", U"Image/logo.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"Logo", Resource(U"Image/logo.png"), TextureDesc::Mipped);
 	//カーソル
-	TextureAsset::Register(U"Cursor_Point", U"Image/Cursor_Point.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"Cursor_Grab", U"Image/Cursor_Grab.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"Cursor_Release", U"Image/Cursor_Release.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"Cursor_Hidden", U"Image/Cursor_Hidden.png");
+	TextureAsset::Register(U"Cursor_Point", Resource(U"Image/Cursor_Point.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"Cursor_Grab", Resource(U"Image/Cursor_Grab.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"Cursor_Release", Resource(U"Image/Cursor_Release.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"Cursor_Hidden", Resource(U"Image/Cursor_Hidden.png"));
 
 	//自動販売機
-	TextureAsset::Register(U"コーラ", U"Image/Cola.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"コーヒー", U"Image/Coffee.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"エナジー", U"Image/Energy.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"まむし", U"Image/RED-VIPER.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"自動販売機", U"Image/zihanki.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"コーラ", Resource(U"Image/Cola.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"コーヒー", Resource(U"Image/Coffee.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"エナジー", Resource(U"Image/Energy.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"まむし", Resource(U"Image/RED-VIPER.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"自動販売機", Resource(U"Image/zihanki.png"), TextureDesc::Mipped);
 	TextureAsset::Load(U"コーラ");
 	TextureAsset::Load(U"コーヒー");
 	TextureAsset::Load(U"エナジー");
 	TextureAsset::Load(U"まむし");
 	TextureAsset::Load(U"自動販売機");
 	//食品ロス
-	TextureAsset::Register(U"受け皿", U"Image/Catch.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"見せ皿", U"Image/Dish.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"受け皿", Resource(U"Image/Catch.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"見せ皿", Resource(U"Image/Dish.png"), TextureDesc::Mipped);
 	TextureAsset::Load(U"受け皿");
 	TextureAsset::Load(U"見せ皿");
+	//ギャーア君
+	TextureAsset::Register(U"ギャーア1", Resource(U"Image/GYARR1.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"ギャーア2", Resource(U"Image/GYARR2.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"ゴール1", Resource(U"Image/Goal1.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"ゴール2", Resource(U"Image/Goal2.png"), TextureDesc::Mipped);
+	FontAsset::Register(U"GYARR", FontMethod::SDF, 120, Resource(U"Font/Corporate-Logo-Rounded-Bold-ver3.otf"));
+	FontAsset(U"GYARR").preload(U"不正解者が全員ゴールしました！");
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 

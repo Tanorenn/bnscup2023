@@ -19,7 +19,13 @@ private:
 		Texture{ Emoji{ U"🌭" } },
 		Texture{ Emoji{ U"🥪" } },
 		Texture{ Emoji{ U"🦀" } },
-		Texture{ Emoji{ U"🧇" } }
+		Texture{ Emoji{ U"🧇" } },
+		Texture{ Emoji{ U"🥩" } },
+		Texture{ Emoji{ U"🍕" } },
+		Texture{ Emoji{ U"🥗" } },
+		Texture{ Emoji{ U"🦞" } },
+		Texture{ Emoji{ U"🦐" } },
+		Texture{ Emoji{ U"🍩" } }
 	};
 
 	const Texture scream{ U"😱"_emoji };

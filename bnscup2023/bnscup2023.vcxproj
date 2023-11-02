@@ -327,6 +327,7 @@
     <ClInclude Include="Explosion.hpp" />
     <ClInclude Include="FireFight.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="GYARRA.hpp" />
     <ClInclude Include="intermission.hpp" />
     <ClInclude Include="Mountain.hpp" />
     <ClInclude Include="MyCursor.hpp" />

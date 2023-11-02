@@ -24,8 +24,10 @@ struct GameData
 		new SaveTheEarth(),
 		new HundredYen(),
 		new Explosion(),
-		//new FireFighting(),
-		new SaveFood()
+		new FireFighting(),
+		new SaveFood(),
+		new GYARRA(),
+		new FireFighting()
 	};
 };
 

@@ -21,7 +21,7 @@ public:
 	void drawGameOver() const;
 
 private:
-	const int32 playGames = 50;
+	const int32 playGames = 999;
 	int32 totalGameCount = 0;
 	int32 gameCount = 0;
 	int32 clearCount = 0;
@@ -30,7 +30,7 @@ private:
 	RenderTexture gameScene;
 	double gameTime = 0;
 	double gameSpeed = 1.0;
-	double tempo = 300.0;
+	double tempo = 120.0;
 	double finishTime = 0;
 
 	Mountain mountain;
