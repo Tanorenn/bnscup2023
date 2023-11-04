@@ -15,6 +15,7 @@ void DreamyRainy::init() {
 	dropSize = 8;
 	isSaved = true;
 	manPos = reajuPos;
+	CursorStyle = U"Hidden";
 }
 
 
