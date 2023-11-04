@@ -47,14 +47,21 @@ void Main()
 	TextureAsset::Register(U"ギャーア2", Resource(U"Image/GYARR2.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"ゴール1", Resource(U"Image/Goal1.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"ゴール2", Resource(U"Image/Goal2.png"), TextureDesc::Mipped);
+	TextureAsset::Load(U"ギャーア1");
+	TextureAsset::Load(U"ギャーア2");
+	TextureAsset::Load(U"ゴール1");
+	TextureAsset::Load(U"ゴール2");
 	FontAsset::Register(U"GYARR", FontMethod::SDF, 120, Resource(U"Font/Corporate-Logo-Rounded-Bold-ver3.otf"));
 	FontAsset(U"GYARR").preload(U"不正解者が全員ゴールしました！");
 	AudioAsset::Register(U"GYARRABGM", Resource(U"Audio/GYARRBGM.mp3"));
 
 	//連打ロボ
-	TextureAsset::Register(U"連打ロボ", U"Image/RendaRobo.png", TextureDesc::Mipped);
-	TextureAsset::Register(U"連打怪獣", U"Image/Kaijuu.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"連打ロボ", Resource(U"Image/RendaRobo.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"連打怪獣", Resource(U"Image/Kaijuu.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"連打攻撃", U"💥"_emoji, TextureDesc::Mipped);
+	TextureAsset::Load(U"連打ロボ");
+	TextureAsset::Load(U"連打怪獣");
+	TextureAsset::Load(U"連打攻撃");
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 

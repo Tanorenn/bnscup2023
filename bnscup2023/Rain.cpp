@@ -8,11 +8,11 @@ void DreamyRainy::init() {
 	reajuPos = Vec2{0, 200};
 	reajuSize = 32;
 	cloudSize = { 48, 48 };
-	umbrellaSize = 48;
+	umbrellaSize = 72;
 	dropX = Random(128, 256-32);
 	dropTime = 0.1;
 	dropPos.clear();
-	dropSize = 16;
+	dropSize = 8;
 	isSaved = true;
 	manPos = reajuPos;
 }
@@ -29,13 +29,13 @@ void DreamyRainy::update(double t, double gameSpeed) {
 	}
 	umbrellaPos = {Cursor::Pos().x, 140};
 	if (dropTime < t){
-		dropTime += 0.05f;
-		dropPos << Vec2{ dropX + Random(-20,20), 32};
+		dropTime += 0.0125f;
+		dropPos << Vec2{ dropX + Random(-40,40), 32};
 	}
 	Circle u(umbrellaPos, umbrellaSize/3); //アンブレラ
 	Circle r(reajuPos, reajuSize / 2); //レアジュ
 	for (Vec2& p : dropPos) {
-		p.moveBy(0, dt*500);
+		p.moveBy(0, dt * 1000);
 		Circle c(p, dropSize);
 		if (u.intersects(c)) {
 			p.y = 300;
@@ -63,7 +63,7 @@ void DreamyRainy::draw(double t, double gameSpeed) const {
 		const double theta = (x + t * 360_deg);
 		const Vec2 pos = OffsetCircular{ Vec2{0,0}, 5, theta };
 		const Vec2 origin{ x,32 };
-		(Abs(dropX - x) < 32 ? cloudRain : cloud).resized(cloudSize).drawAt(origin.movedBy(pos));
+		(Abs(dropX - x) < 48 ? cloudRain : cloud).resized(cloudSize).drawAt(origin.movedBy(pos));
 	}
 	for (const Vec2& p : dropPos) {
 		drop.resized(dropSize).drawAt(p, ColorF(1,1,1, p.y<64?(p.y-32)/32.0:1.0));
