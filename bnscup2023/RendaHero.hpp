@@ -100,7 +100,7 @@ public:
 		RectF{ 40, 165, 20, 35 }.draw(Palette::Gray.withAlpha(200));
 		RectF{ 60, 175, 25, 50 }.draw(Palette::Gray.withAlpha(240));
 
-		TextureAsset(U"連打怪獣").resized(150, 150).drawAt(kaijuuPos.x + Periodic::Triangle1_1(0.03 / gameSpeed) * 5, kaijuuPos.y + Periodic::Triangle1_1(0.02 / gameSpeed) * 5, ColorF(1, 1 - clearT));
+		TextureAsset(U"連打怪獣" + Format(kaijuuNumber)).resized(150, 150).drawAt(kaijuuPos.x + Periodic::Triangle1_1(0.03 / gameSpeed) * 5, kaijuuPos.y + Periodic::Triangle1_1(0.02 / gameSpeed) * 5, ColorF(1, 1 - clearT));
 
 		RectF{ 70, 165, 50, 35 }.draw(Palette::Gray);
 		RectF{ 140, 145, 50, 75 }.draw(Palette::Gray);
