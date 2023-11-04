@@ -1,7 +1,7 @@
 ﻿# include "Rain.hpp"
 
 DreamyRainy::DreamyRainy()
-	:PetitGame{ U"DreamyRainy" }
+	:PetitGame{ U"DreamyRainy", U"DreamyRainyBGM" }
 {}
 
 void DreamyRainy::init() {

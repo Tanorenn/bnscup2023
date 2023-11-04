@@ -1,7 +1,7 @@
 ﻿# include "FireFIght.hpp"
 
 FireFighting::FireFighting()
-	:PetitGame{ U"戦略鎮火" }
+	:PetitGame{ U"戦略鎮火",U"FireFightBGM"}
 	, map{ width,height }
 {}
 

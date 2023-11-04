@@ -80,6 +80,15 @@ void Main()
 	TextureAsset::Load(U"コップ下");
 	TextureAsset::Load(U"Siv3dくん");
 
+	AudioAsset::Register(U"SaveTheEarthBGM", Resource(U"Audio/SaveTheEarth.wav"), Loop::No);
+	AudioAsset::Load(U"SaveTheEarthBGM");
+
+	AudioAsset::Register(U"FireFightBGM", Resource(U"Audio/FireFight.wav"), Loop::No);
+	AudioAsset::Load(U"FireFightBGM");
+
+	AudioAsset::Register(U"DreamyRainyBGM", Resource(U"Audio/DreamyRainy.wav"), Loop::No);
+	AudioAsset::Load(U"DreamyRainyBGM");
+
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
 	App manager;
