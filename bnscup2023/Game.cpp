@@ -45,7 +45,7 @@ void Game::update()
 	auto& game = games[gameIndex[gameCount]];
 	if (gameTime >= 0.0 and not startBGM) {
 		startBGM = true;
-		if(AudioAsset::IsRegistered(game->songName)) AudioAsset(game->songName).playOneShot(1.0,0.0,gameSpeed*4);
+		if(AudioAsset::IsRegistered(game->songName)) AudioAsset(game->songName).playOneShot(1.0,0.0,gameSpeed * 4 * 120.0 / game->BGMBPM);
 	}
 	if (0.0 <= gameTime and gameTime <= 1.0)game->update(Clamp(gameTime, 0.0, 1.0), gameSpeed);
 	getData().myCursor.RequestStyle(game->CursorStyle);

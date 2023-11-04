@@ -19,7 +19,7 @@ private:
 
 public:
 	RendaHero()
-		:PetitGame{ U"連打ロボ",U"連打ロボBGM" }
+		:PetitGame{ U"連打ロボ", U"連打ロボBGM", 154.0 }
 	{
 	}
 
