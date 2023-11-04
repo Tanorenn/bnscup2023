@@ -43,6 +43,16 @@ public:
 		if (TextureAsset(U"連打怪獣" + Format(kaijuuNumber)).resized(150, 150).regionAt(kaijuuPos).leftClicked() and kaijuuHP > 0)
 		{
 			effect.add<RendaAttack>(Cursor::PosF(), gameSpeed);
+
+			if (kaijuuHP == 1)
+			{
+				AudioAsset(U"やった").playOneShot(1, 0, 1.5);
+			}
+			else
+			{
+
+			}
+
 			kaijuuHP--;
 		}
 

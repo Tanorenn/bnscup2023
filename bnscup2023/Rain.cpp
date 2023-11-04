@@ -49,7 +49,6 @@ void DreamyRainy::update(double t, double gameSpeed) {
 
 void DreamyRainy::draw(double t, double gameSpeed) const {
 	Rect(0, 0, 256, 256).draw(Palette::Darkblue);
-	Rect(0, reajuPos.y + reajuSize / 2, 256, reajuPos.y + reajuSize / 2).draw(Palette::Brown);
 	umbrella.resized(umbrellaSize).drawAt(umbrellaPos);
 	if (isSaved) {
 		reaju.resized(reajuSize).drawAt(reajuPos);
@@ -68,6 +67,8 @@ void DreamyRainy::draw(double t, double gameSpeed) const {
 	for (const Vec2& p : dropPos) {
 		drop.resized(dropSize).drawAt(p, ColorF(1,1,1, p.y<64?(p.y-32)/32.0:1.0));
 	}
+
+	Rect(0, reajuPos.y + reajuSize / 2, 256, reajuPos.y + reajuSize / 2).draw(Palette::Brown);
 }
 
 bool DreamyRainy::isClear() {

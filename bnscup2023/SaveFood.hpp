@@ -32,7 +32,7 @@ private:
 
 public:
 	SaveFood()
-		:PetitGame{ U"食品ロス" }
+		:PetitGame{ U"食品ロス", U"SaveFoodBGM", 100 }
 	{
 		CursorStyle = U"Hidden";
 	}

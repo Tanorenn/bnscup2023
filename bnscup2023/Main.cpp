@@ -40,8 +40,10 @@ void Main()
 	//食品ロス
 	TextureAsset::Register(U"受け皿", Resource(U"Image/Catch.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"見せ皿", Resource(U"Image/Dish.png"), TextureDesc::Mipped);
+	AudioAsset::Register(U"SaveFoodBGM", Resource(U"Audio/SaveFood.mp3"));
 	TextureAsset::Load(U"受け皿");
 	TextureAsset::Load(U"見せ皿");
+	AudioAsset::Load(U"SaveFoodBGM");
 	//ギャーア君
 	TextureAsset::Register(U"ギャーア1", Resource(U"Image/GYARR1.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"ギャーア2", Resource(U"Image/GYARR2.png"), TextureDesc::Mipped);
@@ -94,6 +96,8 @@ void Main()
 
 	AudioAsset::Register(U"Miss", Resource(U"Audio/やられた2.mp3"));
 	AudioAsset::Load(U"Miss");
+	AudioAsset::Register(U"やった", Resource(U"Audio/やった！.mp3"));
+	AudioAsset::Load(U"やった");
 
 	App manager;
 	manager.add<Title>(State::Title);
