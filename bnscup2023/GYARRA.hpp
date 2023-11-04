@@ -35,7 +35,6 @@ public:
 
 	void update(double t, double gameSpeed) override
 	{
-		Print << gameSpeed;
 		if (t < 0.1)
 		{
 			AudioAsset(U"GYARRABGM").play();

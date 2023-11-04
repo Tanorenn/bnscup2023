@@ -141,6 +141,8 @@ Resource(Image/RED-VIPER.png)
 Resource(Image/zihanki.png)
 Resource(Image/Goal1.png)
 Resource(Image/Goal2.png)
+Resource(Image/RendaRobo.png)
+Resource(Image/Kaijuu.png)
 
 //Audio
 Resource(Audio/GYARRBGM.mp3)

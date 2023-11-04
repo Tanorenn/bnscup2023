@@ -119,6 +119,7 @@
     <ClCompile Include="FireFight.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Rain.cpp" />
     <ClCompile Include="SaveEarth.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -333,6 +334,8 @@
     <ClInclude Include="MyCursor.hpp" />
     <ClInclude Include="PetitGame.hpp" />
     <ClInclude Include="PetitGames.hpp" />
+    <ClInclude Include="RendaHero.hpp" />
+    <ClInclude Include="Rain.hpp" />
     <ClInclude Include="SaveEarth.hpp" />
     <ClInclude Include="SaveFood.hpp" />
     <ClInclude Include="snipe.hpp" />
