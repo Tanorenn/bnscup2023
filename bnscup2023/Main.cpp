@@ -69,6 +69,7 @@ void Main()
 	TextureAsset::Load(U"連打攻撃");
 	AudioAsset::Load(U"連打ロボBGM");
 
+	//金魚すくい
 	TextureAsset::Register(U"金魚", Resource(U"Image/kingyo2.png"));
 	TextureAsset::Register(U"ポイ", Resource(U"Image/poi.png"));
 	TextureAsset::Register(U"コップ上", Resource(U"Image/paper_cup.png"));
@@ -90,6 +91,9 @@ void Main()
 	AudioAsset::Load(U"DreamyRainyBGM");
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
+
+	AudioAsset::Register(U"Miss", Resource(U"Audio/やられた2.mp3"));
+	AudioAsset::Load(U"Miss");
 
 	App manager;
 	manager.add<Title>(State::Title);

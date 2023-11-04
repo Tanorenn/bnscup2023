@@ -154,9 +154,11 @@ Resource(Image/paper_cup2.png)
 //Audio
 Resource(Audio/GYARRBGM.mp3)
 Resource(Audio/RendaHero.mp3)
-Resource(Audio/SaveTheEarth.mp3)
-Resource(Audio/FireFight.mp3)
-Resource(Audio/DreamyRainy.mp3)
+Resource(Audio / SaveTheEarth.mp3)
+Resource(Audio / FireFight.mp3)
+Resource(Audio / DreamyRainy.mp3)
+
+Resource(Audio / ‚â‚ç‚ê‚½2.mp3)
 
 /* examples 
 
