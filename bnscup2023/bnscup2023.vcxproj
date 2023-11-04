@@ -330,6 +330,7 @@
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GYARRA.hpp" />
     <ClInclude Include="intermission.hpp" />
+    <ClInclude Include="Kingyo.hpp" />
     <ClInclude Include="Mountain.hpp" />
     <ClInclude Include="MyCursor.hpp" />
     <ClInclude Include="PetitGame.hpp" />
@@ -338,6 +339,7 @@
     <ClInclude Include="Rain.hpp" />
     <ClInclude Include="SaveEarth.hpp" />
     <ClInclude Include="SaveFood.hpp" />
+    <ClInclude Include="snipe.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Sukuea.hpp" />
     <ClInclude Include="Title.hpp" />

@@ -69,6 +69,17 @@ void Main()
 	AudioAsset::Register(U"連打ロボBGM", Resource(U"Audio/RendaHero.mp3"), Loop::No);
 	AudioAsset::Load(U"連打ロボBGM");
 
+	TextureAsset::Register(U"金魚", Resource(U"Image/kingyo2.png"));
+	TextureAsset::Register(U"ポイ", Resource(U"Image/poi.png"));
+	TextureAsset::Register(U"コップ上", Resource(U"Image/paper_cup.png"));
+	TextureAsset::Register(U"コップ下", Resource(U"Image/paper_cup2.png"));
+	TextureAsset::Register(U"Siv3dくん", Resource(U"Image/siv3D-gift.png"), TextureDesc::Mipped);
+	TextureAsset::Load(U"金魚");
+	TextureAsset::Load(U"ポイ");
+	TextureAsset::Load(U"コップ上");
+	TextureAsset::Load(U"コップ下");
+	TextureAsset::Load(U"Siv3dくん");
+
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
 	App manager;

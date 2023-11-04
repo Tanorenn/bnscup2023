@@ -15,7 +15,7 @@ private:
 
 public:
 	GYARRA()
-		:PetitGame{ U"ギャーア君" }
+		:PetitGame{ U"ギャーア君",U"GYARRABGM" }
 	{
 	}
 
@@ -29,17 +29,11 @@ public:
 		grab = false;
 		isCleared = false;
 		isFallen = false;
-		AudioAsset(U"GYARRABGM").stop();
 		CursorStyle = U"Release";
 	}
 
 	void update(double t, double gameSpeed) override
 	{
-		if (t < 0.1)
-		{
-			AudioAsset(U"GYARRABGM").play();
-			AudioAsset(U"GYARRABGM").setSpeed(gameSpeed * 4);
-		}
 		CursorStyle = U"Release";
 		//ピンをつかんだら掴んだ判定オン
 		if (pin.leftPressed())
