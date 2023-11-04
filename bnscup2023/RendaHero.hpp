@@ -46,11 +46,11 @@ public:
 
 			if (kaijuuHP == 1)
 			{
-				AudioAsset(U"やった").playOneShot(1, 0, 1.5);
+				AudioAsset(U"連打攻撃2").playOneShot();
 			}
 			else
 			{
-
+				AudioAsset(U"連打攻撃1").playOneShot();
 			}
 
 			kaijuuHP--;

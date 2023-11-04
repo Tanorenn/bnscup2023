@@ -6,8 +6,10 @@
 void Main()
 {
 	Window::Resize(800, 600);
+	Window::SetTitle(U"メイド イン スクウ");
 	Scene::Resize(800, 600);
 	Scene::SetResizeMode(ResizeMode::Keep);
+
 
 	FontAsset::Register(U"GameFont", FontMethod::MSDF, 150, Resource(U"Font/RocknRollOne-Regular.ttf"));
 	FontAsset::Register(U"ScoreFont", 20, Resource(U"Font/RocknRollOne-Regular.ttf"));
@@ -64,12 +66,16 @@ void Main()
 	TextureAsset::Register(U"連打怪獣3", Resource(U"Image/Kaijuu3.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"連打攻撃", U"💥"_emoji, TextureDesc::Mipped);
 	AudioAsset::Register(U"連打ロボBGM", Resource(U"Audio/RendaHero.mp3"), Loop::No);
+	AudioAsset::Register(U"連打攻撃1", Resource(U"Audio/連打1.mp3"));
+	AudioAsset::Register(U"連打攻撃2", Resource(U"Audio/連打2.mp3"));
 	TextureAsset::Load(U"連打ロボ");
 	TextureAsset::Load(U"連打怪獣1");
 	TextureAsset::Load(U"連打怪獣2");
 	TextureAsset::Load(U"連打怪獣3");
 	TextureAsset::Load(U"連打攻撃");
 	AudioAsset::Load(U"連打ロボBGM");
+	TextureAsset::Load(U"連打攻撃1");
+	TextureAsset::Load(U"連打攻撃2");
 
 	//金魚すくい
 	TextureAsset::Register(U"金魚", Resource(U"Image/kingyo2.png"));

@@ -1,5 +1,10 @@
-MIT License
+The MIT License
+(c) 2023 たのれん
+(c) 2023 BetAmoto
+(c) 2023 shibaken
+(c) 2023 Souma
 https://opensource.org/license/mit/
+
 
 SIL Open Font License
 https://opensource.org/license/ofl-1-1/
