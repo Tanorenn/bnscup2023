@@ -330,6 +330,7 @@
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GYARRA.hpp" />
     <ClInclude Include="intermission.hpp" />
+    <ClInclude Include="Kingyo.hpp" />
     <ClInclude Include="Mountain.hpp" />
     <ClInclude Include="MyCursor.hpp" />
     <ClInclude Include="PetitGame.hpp" />

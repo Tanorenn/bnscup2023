@@ -29,6 +29,7 @@ struct GameData
 		new GYARRA(),
 		new DreamyRainy(),
 		new RendaHero(),
+		new Kingyo(),
 	};
 };
 
