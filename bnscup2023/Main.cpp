@@ -51,6 +51,11 @@ void Main()
 	FontAsset(U"GYARR").preload(U"不正解者が全員ゴールしました！");
 	AudioAsset::Register(U"GYARRABGM", Resource(U"Audio/GYARRBGM.mp3"));
 
+	//連打ロボ
+	TextureAsset::Register(U"連打ロボ", U"Image/RendaRobo.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"連打怪獣", U"Image/Kaijuu.png", TextureDesc::Mipped);
+	TextureAsset::Register(U"連打攻撃", U"💥"_emoji, TextureDesc::Mipped);
+
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
 	App manager;

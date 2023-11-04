@@ -16,7 +16,7 @@ public:
 	int16 height = 2;
 	bool isSaved;
 	const Array<String> correct = { U"STOP", U"停止", U"とめる", U"阻止", U"中止" };
-	const Array<String> wrong = { U"STEP", U"SPOT", U"停学", U"とまと" ,U"注視", U"素子", U"とぬる", U"停正", U"下止",U"上止" };
+	const Array<String> wrong = { U"STEP", U"SPOT", U"停学", U"とまと" ,U"注視", U"素子", U"とぬる", U"停正", U"下止",U"上止", U"中上", U"阻上", U"停上"};
 	Grid<String> words;
 	Font font{24, Typeface::Bold};
 

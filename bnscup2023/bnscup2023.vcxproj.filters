@@ -851,6 +851,9 @@
     <ClInclude Include="GYARRA.hpp">
       <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
+    <ClInclude Include="RendaHero.hpp">
+      <Filter>Header Files\PetitGames</Filter>
+    </ClInclude>
     <ClInclude Include="Rain.hpp">
       <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
