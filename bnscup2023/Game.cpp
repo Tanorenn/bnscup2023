@@ -231,7 +231,8 @@ void Game::updateGameOver() {
 void Game::drawGameOver() const {
 	if (restart) {
 		const double fade = - 2.0 - gameTime * 4;
-		drawIntermission(fade);
+		drawIntermission(0);
+		drawShutter(1.0 - fade);
 		return;
 	}
 	gameScene.drawAt(SceneCenter);
