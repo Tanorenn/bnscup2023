@@ -10,6 +10,7 @@ private:
 	double roboScale = 1.0;
 	bool roboinit = false;
 	Vec2 kaijuuPos{ SceneCenter.x, 145 };
+	int8 kaijuuNumber = 0;
 	int8 kaijuuHP = 5;
 	Effect effect;
 	Stopwatch stopwatch;
@@ -29,6 +30,7 @@ public:
 		roboScale = 1.0;
 		roboinit = false;
 		kaijuuPos = Vec2{ SceneCenter.x, 145 };
+		kaijuuNumber = Random(1, 3);
 		kaijuuHP = 5;
 		stopwatch.reset();
 		clearT = 0;
@@ -38,7 +40,7 @@ public:
 
 	void update(double t, double gameSpeed) override
 	{
-		if (TextureAsset(U"連打怪獣").resized(150, 150).regionAt(kaijuuPos).leftClicked() and kaijuuHP > 0)
+		if (TextureAsset(U"連打怪獣" + Format(kaijuuNumber)).resized(150, 150).regionAt(kaijuuPos).leftClicked() and kaijuuHP > 0)
 		{
 			effect.add<RendaAttack>(Cursor::PosF(), gameSpeed);
 			kaijuuHP--;
@@ -89,7 +91,7 @@ public:
 		RectF{ 40, 165, 20, 35 }.draw(Palette::Gray.withAlpha(200));
 		RectF{ 60, 175, 25, 50 }.draw(Palette::Gray.withAlpha(240));
 
-		TextureAsset(U"連打怪獣").resized(150, 150).drawAt(kaijuuPos.x + Periodic::Triangle1_1(0.03 / gameSpeed) * 5, kaijuuPos.y + Periodic::Triangle1_1(0.02 / gameSpeed) * 5, ColorF(1, 1 - clearT));
+		TextureAsset(U"連打怪獣" + Format(kaijuuNumber)).resized(150, 150).drawAt(kaijuuPos.x + Periodic::Triangle1_1(0.03 / gameSpeed) * 5, kaijuuPos.y + Periodic::Triangle1_1(0.02 / gameSpeed) * 5, ColorF(1, 1 - clearT));
 
 		RectF{ 70, 165, 50, 35 }.draw(Palette::Gray);
 		RectF{ 140, 145, 50, 75 }.draw(Palette::Gray);
