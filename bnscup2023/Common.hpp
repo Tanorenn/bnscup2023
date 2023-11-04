@@ -26,6 +26,7 @@ struct GameData
 		new Explosion(),
 		new FireFighting(),
 		new SaveFood(),
+		new FireFighting(),
 		new GYARRA(),
 		new DreamyRainy(),
 		new RendaHero(),
