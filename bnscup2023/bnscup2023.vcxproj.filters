@@ -168,6 +168,9 @@
     <ClCompile Include="FireFight.cpp">
       <Filter>Source Files\PetitGames</Filter>
     </ClCompile>
+    <ClCompile Include="Rain.cpp">
+      <Filter>Source Files\PetitGames</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -846,6 +849,9 @@
       <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
     <ClInclude Include="GYARRA.hpp">
+      <Filter>Header Files\PetitGames</Filter>
+    </ClInclude>
+    <ClInclude Include="Rain.hpp">
       <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
   </ItemGroup>
