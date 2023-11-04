@@ -21,7 +21,6 @@ public:
 
 	void update(double t, double gameSpeed) override
 	{
-		Print << misst;
 		if (MouseL.down()) {
 			for (auto i : step(timing.size())) {
 				if (isGet[i]>0) continue;

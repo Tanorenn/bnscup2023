@@ -36,5 +36,6 @@ private:
 	Mountain mountain;
 	bool gameOver = false;
 	bool restart = false;
+	bool startBGM = false;
 	Array<Vec2> SelectTrianglePoint;
 };
