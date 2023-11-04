@@ -10,6 +10,7 @@ private:
 	double roboScale = 1.0;
 	bool roboinit = false;
 	Vec2 kaijuuPos{ SceneCenter.x, 145 };
+	int8 kaijuuNumber = 0;
 	int8 kaijuuHP = 5;
 	Effect effect;
 	Stopwatch stopwatch;
@@ -30,6 +31,7 @@ public:
 		roboScale = 1.0;
 		roboinit = false;
 		kaijuuPos = Vec2{ SceneCenter.x, 145 };
+		kaijuuNumber = Random(1, 3);
 		kaijuuHP = 5;
 		stopwatch.reset();
 		clearT = 0;
@@ -47,7 +49,7 @@ public:
 			initBGM = true;
 		}
 
-		if (TextureAsset(U"連打怪獣").resized(150, 150).regionAt(kaijuuPos).leftClicked() and kaijuuHP > 0)
+		if (TextureAsset(U"連打怪獣" + Format(kaijuuNumber)).resized(150, 150).regionAt(kaijuuPos).leftClicked() and kaijuuHP > 0)
 		{
 			effect.add<RendaAttack>(Cursor::PosF(), gameSpeed);
 			kaijuuHP--;

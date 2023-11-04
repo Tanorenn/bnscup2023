@@ -1,0 +1,5 @@
+MIT License
+https://opensource.org/license/mit/
+
+SIL Open Font License
+https://opensource.org/license/ofl-1-1/
