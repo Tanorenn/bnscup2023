@@ -51,6 +51,11 @@ void Game::update()
 	getData().myCursor.RequestStyle(game->CursorStyle);
 	getData().myCursor.update();
 
+	if (gameTime >= 1.0 and not clearBGM) {
+		clearBGM = true;
+		AudioAsset(game->isClear() ? U"":U"Miss").playOneShot(1.0, 0.0, gameSpeed * 4);
+	}
+
 	if (KeyEnter.down() or gameTime>=1.5) {
 		totalGameCount++;
 		if (game->isClear())clearCount++;
@@ -71,6 +76,7 @@ void Game::update()
 			gameSpeed = 1.0 / finishTime;
 			gameTime = -0.5;
 			startBGM = false;
+			clearBGM = false;
 		}
 		else gameOver = true;
 	}

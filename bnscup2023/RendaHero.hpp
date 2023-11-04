@@ -15,11 +15,10 @@ private:
 	Stopwatch stopwatch;
 	double clearT = 0;
 	bool isCleared = false;
-	bool initBGM = false;
 
 public:
 	RendaHero()
-		:PetitGame{ U"連打ロボ" }
+		:PetitGame{ U"連打ロボ",U"連打ロボBGM" }
 	{
 	}
 
@@ -34,19 +33,11 @@ public:
 		stopwatch.reset();
 		clearT = 0;
 		isCleared = false;
-		initBGM = false;
 		CursorStyle = U"Grab";
 	}
 
 	void update(double t, double gameSpeed) override
 	{
-		if (initBGM == false)
-		{
-			AudioAsset(U"連打ロボBGM").play();
-			AudioAsset(U"連打ロボBGM").setSpeed(gameSpeed * 4 * 120.0 / 154.0);
-			initBGM = true;
-		}
-
 		if (TextureAsset(U"連打怪獣").resized(150, 150).regionAt(kaijuuPos).leftClicked() and kaijuuHP > 0)
 		{
 			effect.add<RendaAttack>(Cursor::PosF(), gameSpeed);
