@@ -857,5 +857,11 @@
     <ClInclude Include="Rain.hpp">
       <Filter>Header Files\PetitGames</Filter>
     </ClInclude>
+    <ClInclude Include="snipe.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kingyo.hpp">
+      <Filter>Header Files\PetitGames</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
