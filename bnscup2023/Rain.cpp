@@ -35,7 +35,7 @@ void DreamyRainy::update(double t, double gameSpeed) {
 	Circle u(umbrellaPos, umbrellaSize/3); //アンブレラ
 	Circle r(reajuPos, reajuSize / 2); //レアジュ
 	for (Vec2& p : dropPos) {
-		p.moveBy(0, dt * 1000);
+		p.moveBy(0, dt * 1500);
 		Circle c(p, dropSize);
 		if (u.intersects(c)) {
 			p.y = 300;

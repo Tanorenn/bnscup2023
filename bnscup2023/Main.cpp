@@ -57,11 +57,17 @@ void Main()
 
 	//連打ロボ
 	TextureAsset::Register(U"連打ロボ", Resource(U"Image/RendaRobo.png"), TextureDesc::Mipped);
-	TextureAsset::Register(U"連打怪獣", Resource(U"Image/Kaijuu.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"連打怪獣1", Resource(U"Image/Kaijuu1.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"連打怪獣2", Resource(U"Image/Kaijuu2.png"), TextureDesc::Mipped);
+	TextureAsset::Register(U"連打怪獣3", Resource(U"Image/Kaijuu3.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"連打攻撃", U"💥"_emoji, TextureDesc::Mipped);
 	TextureAsset::Load(U"連打ロボ");
-	TextureAsset::Load(U"連打怪獣");
+	TextureAsset::Load(U"連打怪獣1");
+	TextureAsset::Load(U"連打怪獣2");
+	TextureAsset::Load(U"連打怪獣3");
 	TextureAsset::Load(U"連打攻撃");
+	AudioAsset::Register(U"連打ロボBGM", Resource(U"Audio/RendaHero.mp3"), Loop::No);
+	AudioAsset::Load(U"連打ロボBGM");
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
