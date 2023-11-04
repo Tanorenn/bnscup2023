@@ -238,7 +238,7 @@ public:
 				// 横線
 				if (x < points.width() - 1) Line(points[y][x], points[y][x + 1]).draw(thick, color);
 				// 縦線
-				if (y < points.height() - 2) Line(points[y][x], points[y + 1][x]).draw(thick, color);
+				if (y < points.height() - 1) Line(points[y][x], points[y + 1][x]).draw(thick, color);
 			}
 		}
 	}
