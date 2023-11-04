@@ -6,6 +6,7 @@ class FireFighting : public PetitGame
 public:
 	const Texture fire{ U"🔥"_emoji };
 	const Texture drop{ U"💦"_emoji };
+	const Texture store{ U"🏬"_emoji };
 	const Array<Point> dxy = { {0,1},{1,0},{0,-1},{-1,0} };
 	const int32 width = 3;
 	const int32 height = 3;

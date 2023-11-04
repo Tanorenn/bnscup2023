@@ -67,6 +67,10 @@ void FireFighting::update(double t, double gameSpeed) {
 
 
 void FireFighting::draw(double t, double gameSpeed) const {
+	Rect(0, 0, 256, 256).draw(Arg::top = Palette::Lightskyblue, Arg::bottom = Palette::White);
+	Rect(0, 200, 256, 200).draw(Palette::Sandybrown);
+	store.resized(180, 180).drawAt(230, 128, isSaved ? ColorF(1) : ColorF(1.0f, 0.5f, 0.5f));
+
 	const auto connected = isConnected();
 
 	Point firePos{ 220,128 };
