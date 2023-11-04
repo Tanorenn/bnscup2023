@@ -28,6 +28,7 @@ struct GameData
 		new SaveFood(),
 		new FireFighting(),
 		new GYARRA(),
+		new RendaHero(),
 	};
 };
 

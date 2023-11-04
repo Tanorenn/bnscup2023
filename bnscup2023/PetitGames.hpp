@@ -13,6 +13,7 @@
 # include "FireFight.hpp"
 # include "SaveFood.hpp"
 # include "GYARRA.hpp"
+# include "RendaHero.hpp"
 
 ///////////////////////////////////////////////////////////////
 //	ここに作ったゲームを入れる ってしたかったけど動かないからやめた

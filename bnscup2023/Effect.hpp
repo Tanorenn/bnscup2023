@@ -55,3 +55,27 @@ struct SmokeEffect : IEffect
 		return t < 1;
 	}
 };
+
+struct RendaAttack : IEffect
+{
+	const Vec2 m_pos;
+	double m_scale;
+	double m_gameSpeed;
+
+	RendaAttack(const Vec2& pos, double gameSpeed)
+		:m_pos{ pos + Vec2{ Random(-30, 30), Random(-30, 30) } },
+		m_scale{ Random(0.25, 0.35) },
+		m_gameSpeed{ gameSpeed }
+	{
+
+	}
+
+	bool update(double t) override
+	{
+		t *= m_gameSpeed * 8;
+
+		TextureAsset(U"連打攻撃").scaled(Min(m_scale, EaseOutCubic(t))).drawAt(m_pos, ColorF(1, 1 - EaseInCubic(t)));
+
+		return t < 1;
+	}
+};
