@@ -38,5 +38,6 @@ private:
 	bool restart = false;
 	bool startBGM = false;
 	bool clearBGM = false;
+	bool startBGM2 = false;
 	Array<Vec2> SelectTrianglePoint;
 };

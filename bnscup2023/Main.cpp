@@ -119,7 +119,8 @@ void Main()
 	AudioAsset::Load(U"やった");
 	AudioAsset::Register(U"speedup", Resource(U"Audio/上昇.mp3"));
 	AudioAsset::Load(U"speedup");
-
+	AudioAsset::Register(U"select", Resource(U"Audio/決定8.mp3"));
+	AudioAsset::Load(U"select");
 
 	AudioAsset::Register(U"next", Resource(U"Audio/next.mp3"));
 	AudioAsset::Load(U"next");

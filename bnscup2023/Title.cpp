@@ -48,7 +48,10 @@ void Title::update()
 		if (MouseL.down())
 		{
 			changeScene(State::Game);
+			AudioAsset(U"select").playOneShot();
+
 		}
+
 	}
 	//"おわる"にマウスオーバーしたら
 	else if (FontAsset(U"TitleSelectFont")(U"おわる").regionAt(40, SceneCenter.movedBy(0, 95)).mouseOver())

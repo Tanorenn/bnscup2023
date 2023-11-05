@@ -43,6 +43,12 @@ void Game::update()
 	}
 
 	auto& game = games[gameIndex[gameCount]];
+
+	if (not startBGM2) {
+		AudioAsset(U"next").playOneShot(1.0, 0.0, 120.0 / 130.0 * gameSpeed * 4);
+		startBGM2 = true;
+	}
+
 	if (gameTime >= 0.0 and not startBGM) {
 		startBGM = true;
 		if(AudioAsset::IsRegistered(game->songName)) AudioAsset(game->songName).playOneShot(1.0,0.0,gameSpeed * 4 * 120.0 / game->BGMBPM);
@@ -201,6 +207,8 @@ void Game::updateGameOver() {
 		if (gameTime >= -0.5) {
 			restart = false;
 			gameOver = false;
+			AudioAsset(U"next").playOneShot(1.0, 0.0, 120.0 / 130.0 * gameSpeed * 4);
+
 		}
 		return;
 	}
@@ -222,6 +230,7 @@ void Game::updateGameOver() {
 			gameTime = -0.75;
 			restart = true;
 			gameOver = true;
+			AudioAsset(U"select").playOneShot();
 		}
 
 	}
