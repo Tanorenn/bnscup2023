@@ -8,7 +8,7 @@ void DreamyRainy::init() {
 	reajuPos = Vec2{0, 200};
 	reajuSize = 32;
 	cloudSize = { 48, 48 };
-	umbrellaSize = 72;
+	umbrellaSize = 96;
 	dropX = Random(128, 256-32);
 	dropTime = 0.1;
 	dropPos.clear();
