@@ -34,11 +34,13 @@ void Main()
 	TextureAsset::Register(U"エナジー", Resource(U"Image/Energy.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"まむし", Resource(U"Image/RED-VIPER.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"自動販売機", Resource(U"Image/zihanki.png"), TextureDesc::Mipped);
+	AudioAsset::Register(U"money", Resource(U"Audio/money.mp3"));
 	TextureAsset::Load(U"コーラ");
 	TextureAsset::Load(U"コーヒー");
 	TextureAsset::Load(U"エナジー");
 	TextureAsset::Load(U"まむし");
 	TextureAsset::Load(U"自動販売機");
+	AudioAsset::Load(U"money");
 	//食品ロス
 	TextureAsset::Register(U"受け皿", Resource(U"Image/Catch.png"), TextureDesc::Mipped);
 	TextureAsset::Register(U"見せ皿", Resource(U"Image/Dish.png"), TextureDesc::Mipped);
@@ -119,8 +121,8 @@ void Main()
 	AudioAsset::Load(U"やった");
 	AudioAsset::Register(U"speedup", Resource(U"Audio/上昇.mp3"));
 	AudioAsset::Load(U"speedup");
-
-
+	AudioAsset::Register(U"Clock", Resource(U"Audio/clock.mp3"));
+	AudioAsset::Load(U"Clock");
 	AudioAsset::Register(U"next", Resource(U"Audio/next.mp3"));
 	AudioAsset::Load(U"next");
 
