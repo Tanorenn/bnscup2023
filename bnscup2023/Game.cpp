@@ -188,13 +188,22 @@ void Game::drawShutter(double fade) const {
 }
 
 void Game::drawTime() const {
+	static int32 oldTime = 8;
 	int32 time = (1.0 - Clamp(gameTime, 0.0, 1.0)) * 8;
 	for (auto i : step(8))
 	{
 		Rect{ 20 + i * 25, 240, 25, 5 }.draw(HSV(10 + 100 - (8 - i) * 12.5, 0.7, 1.0, 0.5 + (time - i - 1) * 0.5));
 	}
 	//Rect{ 20,220,time * 220/8,20 }.draw();
-	if(time<=3)FontAsset(U"GameFont")(Format(time)).drawAt(40, 20,210, Palette::Yellow);
+	if (time <= 3 and time >= 0)
+	{
+		FontAsset(U"GameFont")(Format(time)).drawAt(40, 20, 210, Palette::Yellow);
+		if (oldTime != time)
+		{
+			AudioAsset(U"Clock").playOneShot();
+		}
+	}
+	oldTime = time;
 }
 
 void Game::updateGameOver() {

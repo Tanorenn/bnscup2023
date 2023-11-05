@@ -45,7 +45,7 @@ private:
 
 public:
 	HundredYen()
-		:PetitGame{ U"自動販売機",U"100yenBGM"}
+		:PetitGame{ U"自動販売機",U"100yenBGM", 150.0}
 	{
 		CursorStyle = U"Point";
 	}
@@ -99,6 +99,7 @@ public:
 			}
 			if (isCleared)
 			{
+				AudioAsset(U"money").playOneShot(1.0, 0.0, gameSpeed * 4);
 				state = CLEAR;
 			}
 		}
