@@ -59,7 +59,7 @@ public:
 			if (foodPos.y > 200 and TextureAsset(U"受け皿").resized(80, 60).regionAt(Vec2{ Cursor::PosF().x, 225 }).intersects(fallenFood) and foodPos.y < 220)
 			{
 				isCleared = true;
-				AudioAsset(U"やった").playOneShot(1.0, 0.0, 1.5);
+				AudioAsset(U"やった").playOneShot(1.0, 0.0, gameSpeed * 4 * 1.5);
 				stopwatch.start();
 			}
 			else if (foodPos.y > 220)
