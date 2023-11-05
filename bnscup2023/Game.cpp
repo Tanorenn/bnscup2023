@@ -53,7 +53,7 @@ void Game::update()
 
 	if (gameTime >= 1.0 and not clearBGM) {
 		clearBGM = true;
-		AudioAsset(game->isClear() ? U"":U"Miss").playOneShot(1.0, 0.0, gameSpeed * 4);
+		AudioAsset(game->isClear() ? U"やった":U"Miss").playOneShot(1.0, 0.0, gameSpeed * 4);
 	}
 
 	if (KeyEnter.down() or gameTime>=1.5) {
@@ -71,7 +71,11 @@ void Game::update()
 			}
 			else gameCount++;
 			games[gameIndex[gameCount]]->init();
-			if (totalGameCount % 3 == 0)tempo += 10.0;
+			if (totalGameCount % 3 == 0) {
+				tempo += 10.0;
+				AudioAsset(U"speedup").playOneShot(1.0, 0.0, gameSpeed * 4);
+
+			}
 			finishTime = 60.0 * 8 / tempo;
 			gameSpeed = 1.0 / finishTime;
 			gameTime = -0.5;

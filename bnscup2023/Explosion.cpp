@@ -1,7 +1,7 @@
 ﻿# include "Explosion.hpp"
 
 Explosion::Explosion()
-	:PetitGame{ U"爆弾停止"}
+	:PetitGame{ U"爆弾停止",U"ExplosionBGM" }
 	,words{width, height}
 {}
 

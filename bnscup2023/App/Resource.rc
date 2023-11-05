@@ -158,11 +158,16 @@ Resource(Audio/SaveTheEarth.mp3)
 Resource(Audio/FireFight.mp3)
 Resource(Audio/DreamyRainy.mp3)
 Resource(Audio/SaveFood.mp3)
+Resource(Audio/BGM2.mp3)
+Resource(Audio/BGM3.mp3)
+Resource(Audio/BGM4.mp3)
 
 Resource(Audio/連打1.mp3)
 Resource(Audio/連打2.mp3)
 
 Resource(Audio/やられた2.mp3)
+Resource(Audio/上昇.mp3)
+Resource(Audio/ジャンプ2.mp3)
 Resource(Audio/やった！.mp3)
 
 /* examples 

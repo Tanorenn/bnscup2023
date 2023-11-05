@@ -45,7 +45,7 @@ private:
 
 public:
 	HundredYen()
-		:PetitGame{ U"自動販売機" }
+		:PetitGame{ U"自動販売機",U"100yenBGM"}
 	{
 		CursorStyle = U"Point";
 	}

@@ -88,6 +88,9 @@ void Main()
 	TextureAsset::Load(U"コップ上");
 	TextureAsset::Load(U"コップ下");
 	TextureAsset::Load(U"Siv3dくん");
+	AudioAsset::Register(U"poiup", Resource(U"Audio/ジャンプ2.mp3"), Loop::No);
+	AudioAsset::Load(U"poiup");
+
 
 	AudioAsset::Register(U"SaveTheEarthBGM", Resource(U"Audio/SaveTheEarth.mp3"), Loop::No);
 	AudioAsset::Load(U"SaveTheEarthBGM");
@@ -98,12 +101,24 @@ void Main()
 	AudioAsset::Register(U"DreamyRainyBGM", Resource(U"Audio/DreamyRainy.mp3"), Loop::No);
 	AudioAsset::Load(U"DreamyRainyBGM");
 
+
+	AudioAsset::Register(U"ExplosionBGM", Resource(U"Audio/BGM4.mp3"), Loop::No);
+	AudioAsset::Load(U"ExplosionBGM");
+	AudioAsset::Register(U"100yenBGM", Resource(U"Audio/BGM2.mp3"), Loop::No);
+	AudioAsset::Load(U"100yenBGM");
+	AudioAsset::Register(U"kingyoBGM", Resource(U"Audio/BGM3.mp3"), Loop::No);
+	AudioAsset::Load(U"kingyoBGM");
+
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
 	AudioAsset::Register(U"Miss", Resource(U"Audio/やられた2.mp3"));
 	AudioAsset::Load(U"Miss");
 	AudioAsset::Register(U"やった", Resource(U"Audio/やった！.mp3"));
 	AudioAsset::Load(U"やった");
+	AudioAsset::Register(U"speedup", Resource(U"Audio/上昇.mp3"));
+	AudioAsset::Load(U"speedup");
+
+
 
 	App manager;
 	manager.add<Title>(State::Title);
