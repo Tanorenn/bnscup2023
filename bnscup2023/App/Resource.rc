@@ -165,10 +165,12 @@ Resource(Audio/BGM4.mp3)
 Resource(Audio/連打1.mp3)
 Resource(Audio/連打2.mp3)
 
+Resource(Audio/success.mp3)
 Resource(Audio/やられた2.mp3)
 Resource(Audio/上昇.mp3)
 Resource(Audio/ジャンプ2.mp3)
 Resource(Audio/やった！.mp3)
+Resource(Audio/next.mp3)
 
 /* examples 
 

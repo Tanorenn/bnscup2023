@@ -111,6 +111,8 @@ void Main()
 
 	AudioAsset::Register(U"Brick", GMInstrument::Woodblock, PianoKey::C5, 0.2s, 0.1s);
 
+	AudioAsset::Register(U"Success", Resource(U"Audio/success.mp3"));
+	AudioAsset::Load(U"Success");
 	AudioAsset::Register(U"Miss", Resource(U"Audio/やられた2.mp3"));
 	AudioAsset::Load(U"Miss");
 	AudioAsset::Register(U"やった", Resource(U"Audio/やった！.mp3"));
@@ -119,6 +121,8 @@ void Main()
 	AudioAsset::Load(U"speedup");
 
 
+	AudioAsset::Register(U"next", Resource(U"Audio/next.mp3"));
+	AudioAsset::Load(U"next");
 
 	App manager;
 	manager.add<Title>(State::Title);
