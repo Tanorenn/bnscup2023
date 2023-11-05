@@ -4,7 +4,7 @@
 class Kingyo : public PetitGame
 {
 public:
-	Kingyo() :PetitGame{ U"金魚すくいだドン！" }
+	Kingyo() :PetitGame{ U"金魚すくいだドン！",U"kingyoBGM"}
 	{}
 
 	void init() override
@@ -22,6 +22,7 @@ public:
 	void update(double t, double gameSpeed) override
 	{
 		if (MouseL.down()) {
+			AudioAsset(U"poiup").playOneShot(1.0, 0.0, gameSpeed * 4);
 			for (auto i : step(timing.size())) {
 				if (isGet[i]>0) continue;
 				if (Abs(timing[i] - t) < 0.1) {

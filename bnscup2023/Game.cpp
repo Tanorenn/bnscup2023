@@ -72,7 +72,11 @@ void Game::update()
 			else gameCount++;
 			AudioAsset(U"next").playOneShot(1.0, 0.0, 120.0 / 130.0 * gameSpeed * 4);
 			games[gameIndex[gameCount]]->init();
-			if (totalGameCount % 3 == 0)tempo += 10.0;
+			if (totalGameCount % 3 == 0) {
+				tempo += 10.0;
+				AudioAsset(U"speedup").playOneShot(1.0, 0.0, gameSpeed * 4);
+
+			}
 			finishTime = 60.0 * 8 / tempo;
 			gameSpeed = 1.0 / finishTime;
 			gameTime = -0.5;
