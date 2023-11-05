@@ -12,6 +12,7 @@ public:
 	const int32 height = 3;
 	bool isSaved;
 	Grid<int32> map;
+	Grid<Color> mapColor;
 	Font font{ 24, Typeface::Regular };
 	const Point size{50,50 };
 	FireFighting();
