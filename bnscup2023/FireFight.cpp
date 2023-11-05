@@ -2,13 +2,22 @@
 
 FireFighting::FireFighting()
 	:PetitGame{ U"戦略鎮火",U"FireFightBGM"}
-	, map{ width,height }
+	, map{ width,height }, mapColor{ width,height }
 {}
 
 void FireFighting::init() {
 	Array<int32> id = { 0b1100, 0b0110, 0b0011, 0b1001, 0b1110, 0b0111, 0b1011, 0b1101, 0b0000 };
 	isSaved = false;
 	assert(id.size() == width * height);
+	for (int32 i = 0; i < width; ++i) {
+		for (int32 j = 0; j < height; ++j) {
+			Color c = Palette::Burlywood;
+			c.r += Random(-30, 20);
+			c.g += Random(-30, 20);
+			c.b += Random(-30, 20);
+			mapColor[Point(i, j)] = c;
+		}
+	}
 
 	for (int32 i = 0; i < 1000; ++i) {
 		id.shuffle();
@@ -60,6 +69,7 @@ void FireFighting::update(double t, double gameSpeed) {
 	int32 dist = blank.manhattanDistanceFrom(click);
 	if (dist == 1) {
 		map[blank] = map[click];
+		mapColor[blank] = mapColor[click];
 		map[click] = 0;
 	}
 	isSaved = isSolved();
@@ -70,6 +80,7 @@ void FireFighting::draw(double t, double gameSpeed) const {
 	Rect(0, 0, 256, 256).draw(Arg::top = Palette::Lightskyblue, Arg::bottom = Palette::White);
 	Rect(0, 200, 256, 200).draw(Palette::Sandybrown);
 	store.resized(180, 180).drawAt(230, 128, isSaved ? ColorF(1) : ColorF(1.0f, 0.5f, 0.5f));
+
 
 	const auto connected = isConnected();
 
@@ -98,11 +109,11 @@ void FireFighting::draw(double t, double gameSpeed) const {
 			Rect(getPos(p), size).draw(Palette::Darkgray).drawFrame(3, 0, Palette::Black);
 		}
 		else {
-			Rect(getPos(p), size).draw(Palette::White).drawFrame(2, 0, Palette::Black);
+			Rect(getPos(p), size).draw(mapColor[p]).drawFrame(2, 0, Palette::Black);
 			// map[p]に応じて描画
 			for (int32 i = 0; i < 4; ++i) {
 				if (map[p] & (1 << i)) {
-					Line(getPos(p) + size / 2, getPos(p) + size / 2 + dxy[i] * size / 2).draw(8, Palette::Black).draw(6, connected[p] ? Palette::Lightskyblue : Palette::Black);
+					Line(getPos(p) + size / 2, getPos(p) + size / 2 + dxy[i] * size * 0.4).draw(8, Palette::Black).draw(6, connected[p] ? Palette::Lightskyblue : Palette::Black);
 				}
 				Circle(getPos(p) + size / 2, 8).draw(connected[p] ? Palette::Lightskyblue : Palette::Gray).drawFrame(1, 0, Palette::Black);
 			}

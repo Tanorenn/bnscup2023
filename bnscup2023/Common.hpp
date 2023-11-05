@@ -31,6 +31,29 @@ struct GameData
 		new DreamyRainy(),
 		new RendaHero(),
 		new Kingyo(),
+
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+		new FireFighting(),
+
 	};
 };
 
